@@ -119,6 +119,26 @@
       opacity: 1;
       pointer-events: auto;
     }
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #0071e3;
+    }
+    .segmented-btn.active {
+      background-color: #ffffff;
+      border: 2px solid #0071e3;
+      color: #1a1c1d;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .segmented-btn.inactive {
+      background-color: #f3f3f5;
+      border: 2px solid transparent;
+      color: #717785;
+    }
   </style>
 </head>
 <body class="antialiased text-on-surface">
@@ -134,7 +154,7 @@
       <div class="hidden md:flex gap-8 font-body-main text-body-main font-bold">
         <a class="text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-transform hover:opacity-80 transition-opacity" href="index.html">홈</a>
         <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 transition-transform hover:opacity-80 transition-opacity font-bold" href="news.html">부동산 소식</a>
-        <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 transition-transform hover:opacity-80 transition-opacity font-bold" href="#services-section">서비스</a>
+        <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 transition-transform hover:opacity-80 transition-opacity font-bold" href="consult.html">상담 신청</a>
         <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 transition-transform hover:opacity-80 transition-opacity font-bold" href="#realtor-section">오시는 길</a>
       </div>
       <a class="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform hover:opacity-80 transition-opacity" href="tel:010-0000-0000">
@@ -161,10 +181,10 @@
           <span class="material-symbols-outlined" data-icon="call" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">call</span>
           지금 바로 전화 상담하기
         </a>
-        <button onclick="openConsultModal()" class="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
+        <a href="consult.html" class="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
           <span class="material-symbols-outlined">edit_calendar</span>
           온라인 상담 신청
-        </button>
+        </a>
       </div>
     </div>
 
@@ -263,21 +283,13 @@
         <h2 class="font-section-title-mobile md:font-section-title mb-4 text-white text-4xl font-bold md:text-5xl text-left">내 집 마련의 꿈, 봄날과 함께 시작하세요</h2>
         <p class="font-body-large text-text-secondary mb-8 text-white text-xl font-bold text-left">전문가와의 1:1 상담을 통해 가장 적합한 보금자리를 찾아드립니다.</p>
         <div class="flex flex-col sm:flex-row gap-4 flex-wrap text-left justify-start">
-          <button onclick="openConsultModal()" class="inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-6 h-14 rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-lg active:scale-95 min-w-[180px]">
+          <a href="consult.html" class="inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-6 h-14 rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-lg active:scale-95 min-w-[180px]">
             <span class="material-symbols-outlined text-[24px]">calendar_month</span>
             <span>상담 예약하기</span>
-          </button>
+          </a>
           <a class="inline-flex items-center justify-center gap-2 border border-primary text-primary px-6 h-14 rounded-full font-bold text-lg hover:bg-primary/5 transition-colors active:scale-95 min-w-[180px]" href="tel:010-0000-0000">
             <span class="material-symbols-outlined text-[24px]">call</span>
             <span>전화로 문의하기</span>
-          </a>
-          <a class="inline-flex items-center justify-center gap-2 bg-[#FEE500] text-black px-6 h-14 rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-lg active:scale-95 min-w-[180px]" href="#">
-            <span class="material-symbols-outlined text-[24px]">chat_bubble</span>
-            <span>카카오톡</span>
-          </a>
-          <a class="inline-flex items-center justify-center gap-2 bg-[#03C75A] text-white px-6 h-14 rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-lg active:scale-95 min-w-[180px]" href="#">
-            <span class="material-symbols-outlined text-[24px]">rss_feed</span>
-            <span>네이버 블로그</span>
           </a>
         </div>
       </div>
@@ -355,41 +367,16 @@
         <span class="material-symbols-outlined mb-1" data-icon="grid_view">grid_view</span>
         <span class="font-label-caps text-label-caps">소식</span>
       </a>
-      <button onclick="openConsultModal()" class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform">
+      <a href="consult.html" class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform">
         <span class="material-symbols-outlined mb-1">calendar_month</span>
         <span class="font-label-caps text-label-caps">상담신청</span>
-      </button>
+      </a>
       <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="tel:010-0000-0000">
         <span class="material-symbols-outlined mb-1" data-icon="call">call</span>
         <span class="font-label-caps text-label-caps">전화문의</span>
       </a>
     </div>
   </nav>
-
-  <!-- Consultation Modal -->
-  <div id="consult-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-surface-dim rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
-      <button onclick="closeConsultModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
-      <h3 class="text-2xl font-bold mb-2 text-on-surface">1:1 부동산 맞춤 상담 신청</h3>
-      <p class="text-text-secondary text-sm mb-6">성함과 연락처를 남겨주시면 대표 중개사가 친절하게 상담 도와드립니다.</p>
-      <form id="consult-form" onsubmit="handleConsultSubmit(event)" class="space-y-4">
-        <div>
-          <label class="block text-sm font-semibold mb-1">성함 *</label>
-          <input type="text" id="consult-name" required placeholder="홍길동" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold mb-1">연락처 *</label>
-          <input type="tel" id="consult-phone" required placeholder="010-0000-0000" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none">
-        </div>
-        <div>
-          <label class="block text-sm font-semibold mb-1">희망 상담 내용</label>
-          <textarea id="consult-memo" rows="3" placeholder="관심 매물, 지역, 예산 등 문의사항을 적어주세요." class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"></textarea>
-        </div>
-        <div id="consult-msg" class="hidden text-sm p-3 rounded-lg"></div>
-        <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity">상담 신청 완료</button>
-      </form>
-    </div>
-  </div>
 
   <script src="db.js"></script>
   <script>
@@ -403,7 +390,6 @@
 
     function startCarousel() {
       const images = document.querySelectorAll('.carousel-img');
-      const dots = document.querySelectorAll('.carousel-dot');
       if (images.length === 0) return;
 
       if (carouselTimer) clearInterval(carouselTimer);
@@ -478,24 +464,6 @@
         console.error(e);
         previewSec.style.display = 'none';
       }
-    }
-
-    function openConsultModal() {
-      document.getElementById('consult-modal').classList.remove('hidden');
-    }
-    function closeConsultModal() {
-      document.getElementById('consult-modal').classList.add('hidden');
-    }
-    function handleConsultSubmit(e) {
-      e.preventDefault();
-      const msg = document.getElementById('consult-msg');
-      msg.className = "text-sm p-3 rounded-lg bg-green-100 text-green-800 block";
-      msg.innerText = "상담 신청이 정상 접수되었습니다! 빠른 시일 내에 연락드리겠습니다.";
-      setTimeout(() => {
-        closeConsultModal();
-        document.getElementById('consult-form').reset();
-        msg.className = "hidden text-sm p-3 rounded-lg";
-      }, 2000);
     }
   </script>
 </body>
