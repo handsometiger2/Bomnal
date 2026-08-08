@@ -150,8 +150,8 @@
         </div>
         <nav class="flex flex-col gap-4 mt-6 font-body-main text-lg font-bold">
           <a href="index.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">home</span> 홈</a>
-          <a href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73" target="_blank" rel="noopener noreferrer" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">storefront</span> 네이버 매물</a>
-          <a href="news.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">newspaper</span> 부동산 소식</a>
+          <a href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73" target="_blank" rel="noopener noreferrer" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">domain</span> 네이버 매물</a>
+          <a href="news.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">grid_view</span> 부동산 소식</a>
           <a href="consult.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">calendar_month</span> 온라인 상담 신청</a>
           <a href="map.html" class="text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">location_on</span> 오시는 길</a>
         </nav>
@@ -280,28 +280,34 @@
     </div>
   </footer>
 
-  <!-- BottomNavBar (Mobile Only with 5 Items) -->
+  <!-- Unified 6-Item Mobile Bottom Navigation Bar -->
   <nav class="bg-surface-white/90 dark:bg-surface-dim/90 backdrop-blur-lg fixed bottom-0 w-full z-40 md:hidden border-t border-outline-variant/50 shadow-lg pb-safe">
-    <div class="flex justify-around items-center h-16 text-xs font-bold">
-      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="index.html">
-        <span class="material-symbols-outlined mb-0.5">home</span>
-        <span>홈</span>
+    <div class="flex justify-around items-center h-16 overflow-x-auto">
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform shrink-0 px-1" href="index.html">
+        <span class="material-symbols-outlined text-[20px] mb-1">home</span>
+        <span class="font-label-caps text-[10px]">홈</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73" target="_blank" rel="noopener noreferrer">
-        <span class="material-symbols-outlined mb-0.5">storefront</span>
-        <span>네이버매물</span>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform shrink-0 px-1"
+         href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73"
+         target="_blank" rel="noopener noreferrer">
+        <span class="material-symbols-outlined text-[20px] mb-1">domain</span>
+        <span class="font-label-caps text-[10px]">매물</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="news.html">
-        <span class="material-symbols-outlined mb-0.5">newspaper</span>
-        <span>소식</span>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform shrink-0 px-1" href="news.html">
+        <span class="material-symbols-outlined text-[20px] mb-1">grid_view</span>
+        <span class="font-label-caps text-[10px]">소식</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="consult.html">
-        <span class="material-symbols-outlined mb-0.5">calendar_month</span>
-        <span>상담신청</span>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform shrink-0 px-1" href="consult.html">
+        <span class="material-symbols-outlined text-[20px] mb-1">calendar_month</span>
+        <span class="font-label-caps text-[10px]">상담신청</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-primary active:scale-90 transition-transform" href="map.html">
-        <span class="material-symbols-outlined mb-0.5">location_on</span>
-        <span>오시는길</span>
+      <a class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 transition-transform shrink-0 px-1" href="map.html">
+        <span class="material-symbols-outlined text-[20px] mb-1">location_on</span>
+        <span class="font-label-caps text-[10px]">오시는길</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform shrink-0 px-1" href="tel:010-3260-5229">
+        <span class="material-symbols-outlined text-[20px] mb-1">call</span>
+        <span class="font-label-caps text-[10px]">전화</span>
       </a>
     </div>
   </nav>
