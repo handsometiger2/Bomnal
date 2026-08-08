@@ -310,12 +310,16 @@
 
       grid.innerHTML = filtered.map(post => {
         const summary = markdownToText(post.content || '').slice(0, 70);
+        const imageUrl = post.image || 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop';
         return `
-          <article onclick="location.href='news-detail.html?id=${post.id}'" class="bg-surface-white rounded-xl overflow-hidden border border-outline-variant/30 hover:shadow-lg transition-shadow flex flex-col h-full group cursor-pointer">
+          <article onclick="location.href='news-detail.html?id=${post.id}'" class="bg-surface-white rounded-xl overflow-hidden border border-outline-variant/30 hover:shadow-xl transition-all duration-300 flex flex-col h-full group cursor-pointer">
+            <div class="h-48 overflow-hidden relative bg-surface-container-high">
+              <img src="${imageUrl}" alt="${escapeHtml(post.title || '')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop';">
+              <span class="absolute top-3 left-3 bg-primary text-white font-label-caps text-xs font-semibold px-3 py-1 rounded-full shadow-md">${escapeHtml(post.category || '소식')}</span>
+            </div>
             <div class="p-6 flex flex-col flex-grow text-left">
-              <span class="text-primary font-label-caps text-xs font-semibold mb-2">${escapeHtml(post.category || '소식')}</span>
               <h3 class="font-tile-heading text-on-surface mb-3 font-bold line-clamp-2 group-hover:text-primary transition-colors">${escapeHtml(post.title || '')}</h3>
-              <p class="font-body-small text-text-secondary mb-4 line-clamp-3 text-sm">${escapeHtml(summary)}...</p>
+              <p class="font-body-small text-text-secondary mb-4 line-clamp-3 text-sm leading-relaxed">${escapeHtml(summary)}...</p>
               <div class="mt-auto flex justify-between items-center border-t border-outline-variant/20 pt-4">
                 <span class="font-caption text-xs text-text-muted">${escapeHtml(post.date || '')}</span>
                 <span class="text-primary font-bold text-sm flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
