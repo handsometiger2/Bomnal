@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 작성/수정 - 봄날부동산 관리자</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed": "#001b3e",
+            "on-primary-container": "#fcfbff",
+            "on-error": "#ffffff",
+            "surface-tint": "#005cbb",
+            "outline": "#717785",
+            "surface-bright": "#f9f9fb",
+            "tertiary-fixed-dim": "#aac7ff",
+            "on-secondary": "#ffffff",
+            "tertiary": "#0059b4",
+            "primary-container": "#0071e3",
+            "on-primary": "#ffffff",
+            "surface-white": "#FFFFFF",
+            "surface": "#f9f9fb",
+            "tertiary-container": "#2172d9",
+            "secondary-fixed": "#e4e2e4",
+            "secondary": "#5f5e60",
+            "link-blue": "#0066CC",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#f0f0f2",
+            "surface-container-high": "#e8e8ea",
+            "primary-fixed": "#d7e2ff",
+            "on-tertiary-fixed-variant": "#00458e",
+            "surface-variant": "#e2e2e4",
+            "on-tertiary-container": "#fcfbff",
+            "outline-variant": "#c1c6d6",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f3f3f5",
+            "primary": "#0059b5",
+            "secondary-fixed-dim": "#c8c6c8",
+            "background": "#f9f9fb",
+            "on-tertiary": "#ffffff",
+            "inverse-primary": "#abc7ff",
+            "primary-fixed-dim": "#abc7ff",
+            "inverse-surface": "#2f3132",
+            "on-surface-variant": "#414753",
+            "tertiary-fixed": "#d7e3ff",
+            "text-secondary": "#515154",
+            "surface-dim": "#d9dadc",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#636264",
+            "secondary-container": "#e2dfe1",
+            "surface-container": "#eeeef0",
+            "on-primary-fixed-variant": "#00458f",
+            "text-muted": "#6E6E73",
+            "on-secondary-fixed-variant": "#474649",
+            "on-surface": "#1a1c1d",
+            "on-secondary-fixed": "#1b1b1d",
+            "surface-container-highest": "#e2e2e4",
+            "on-background": "#1a1c1d",
+            "on-primary-fixed": "#001b3f"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "container-max": "1200px",
+            "stack-lg": "80px",
+            "gutter": "20px",
+            "stack-sm": "20px",
+            "stack-md": "40px",
+            "margin-desktop": "40px",
+            "margin-mobile": "20px"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { background-color: #F5F5F7; }
+  </style>
+</head>
+<body class="antialiased text-on-surface flex flex-col min-h-screen">
+
+  <nav class="bg-surface-white/80 dark:bg-surface-dim/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30">
+    <div class="w-full px-margin-desktop flex justify-between items-center h-20">
+      <div class="flex items-center h-10 font-bold">
+        <a href="index.html" class="flex items-center h-full">
+          <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD55N4085FL70nsJ-HPxvYmzzO1Htz6zRq2Lz3ovs1Nz8g0GCqJzpRC7YnXSC065OU9M5so1T4ffDguSKdxhcdJp_ANkUpg_cbV4CgYos-MA1Jm9TLXxKkLVlIvyZRbJZdMW1A9hqKcPCRRaJ4DBFuhLeHD-j0mPhwIuqSjWirqCcTXq0Yyb_sh-GEBQapvd1oTdBvHHBpk_gqfaiRs1lwyGc4WJ9rVO6my6TaWFE3Zb2-PdwNUzgi8oKAy9w0FDjXDKIM">
+        </a>
+      </div>
+      <div class="hidden md:flex gap-8 font-body-main text-body-main font-bold">
+        <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 hover:opacity-80" href="index.html">홈</a>
+        <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 hover:opacity-80" href="news.html">부동산 소식</a>
+        <a class="text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-transform hover:opacity-80" href="admin.html">게시글 관리</a>
+      </div>
+      <a class="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform hover:opacity-80" href="tel:010-0000-0000">
+        전화 문의하기
+      </a>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-28 flex-grow w-full max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="mb-6 flex justify-between items-center">
+      <h1 id="page-heading" class="text-2xl md:text-4xl font-bold text-on-surface">새 게시글 작성</h1>
+      <a href="admin.html" class="text-text-secondary hover:text-primary font-bold text-sm">대시보드로 돌아가기</a>
+    </div>
+
+    <form id="write-form" onsubmit="handleFormSubmit(event)" class="bg-surface-white rounded-2xl p-6 md:p-8 border border-outline-variant/30 shadow-sm space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-bold text-on-surface mb-2">카테고리 *</label>
+          <select id="field-category" required class="w-full px-4 py-3 bg-surface border border-outline-variant/40 rounded-xl focus:ring-2 focus:ring-primary outline-none">
+            <option value="부동산 동향">부동산 동향</option>
+            <option value="세금 가이드">세금 가이드</option>
+            <option value="정부 정책">정부 정책</option>
+            <option value="월성동 소식">월성동 소식</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-bold text-on-surface mb-2">작성일 *</label>
+          <input type="date" id="field-date" required class="w-full px-4 py-3 bg-surface border border-outline-variant/40 rounded-xl focus:ring-2 focus:ring-primary outline-none">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold text-on-surface mb-2">제목 *</label>
+        <input type="text" id="field-title" required placeholder="게시글 제목을 입력하세요" class="w-full px-4 py-3 bg-surface border border-outline-variant/40 rounded-xl focus:ring-2 focus:ring-primary outline-none">
+      </div>
+
+      <div>
+        <div class="flex justify-between items-center mb-2">
+          <label class="block text-sm font-bold text-on-surface">본문 내용 (마크다운 지원) *</label>
+          <div class="flex gap-2">
+            <button type="button" onclick="setMode('write')" id="tab-write" class="px-3 py-1 rounded-lg text-xs font-bold bg-primary text-white">편집</button>
+            <button type="button" onclick="setMode('preview')" id="tab-preview" class="px-3 py-1 rounded-lg text-xs font-bold bg-surface-container text-text-secondary">미리보기</button>
+          </div>
+        </div>
+
+        <div id="editor-area">
+          <textarea id="field-content" required rows="14" placeholder="마크다운 서식을 사용하여 본문을 작성하세요. (예: # 제목, ## 소제목, - 목록, **굵게**)" class="w-full px-4 py-3 bg-surface border border-outline-variant/40 rounded-xl focus:ring-2 focus:ring-primary outline-none font-mono text-sm leading-relaxed"></textarea>
+        </div>
+
+        <div id="preview-area" class="hidden min-h-[350px] p-6 bg-surface rounded-xl border border-outline-variant/40">
+          <div id="preview-content" class="text-on-surface text-base"></div>
+        </div>
+      </div>
+
+      <div id="status-msg" class="hidden text-sm p-4 rounded-xl"></div>
+
+      <div class="flex gap-4 justify-end pt-4 border-t border-outline-variant/20">
+        <a href="admin.html" class="px-6 py-3 bg-surface-container text-text-secondary font-bold rounded-xl hover:bg-gray-200 transition-colors">취소</a>
+        <button type="submit" id="btn-submit" class="px-8 py-3 bg-primary text-white font-bold rounded-xl hover:opacity-90 transition-opacity shadow-md">저장하기</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="db.js"></script>
+  <script>
+    let editId = null;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      requireAdmin();
+
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('field-date').value = today;
+
+      const params = new URLSearchParams(window.location.search);
+      editId = params.get('id');
+
+      if (editId) {
+        document.getElementById('page-heading').innerText = '게시글 수정';
+        const post = await getPostById(editId);
+        if (post) {
+          document.getElementById('field-category').value = post.category || '부동산 동향';
+          document.getElementById('field-date').value = post.date || today;
+          document.getElementById('field-title').value = post.title || '';
+          document.getElementById('field-content').value = post.content || '';
+        }
+      }
+    });
+
+    function setMode(mode) {
+      const editorArea = document.getElementById('editor-area');
+      const previewArea = document.getElementById('preview-area');
+      const previewContent = document.getElementById('preview-content');
+      const tabWrite = document.getElementById('tab-write');
+      const tabPreview = document.getElementById('tab-preview');
+
+      if (mode === 'preview') {
+        const raw = document.getElementById('field-content').value;
+        previewContent.innerHTML = renderMarkdown(raw);
+        editorArea.classList.add('hidden');
+        previewArea.classList.remove('hidden');
+        tabWrite.className = "px-3 py-1 rounded-lg text-xs font-bold bg-surface-container text-text-secondary";
+        tabPreview.className = "px-3 py-1 rounded-lg text-xs font-bold bg-primary text-white";
+      } else {
+        editorArea.classList.remove('hidden');
+        previewArea.classList.add('hidden');
+        tabWrite.className = "px-3 py-1 rounded-lg text-xs font-bold bg-primary text-white";
+        tabPreview.className = "px-3 py-1 rounded-lg text-xs font-bold bg-surface-container text-text-secondary";
+      }
+    }
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const statusMsg = document.getElementById('status-msg');
+      const btnSubmit = document.getElementById('btn-submit');
+
+      const postData = {
+        id: editId || undefined,
+        category: document.getElementById('field-category').value,
+        date: document.getElementById('field-date').value,
+        title: document.getElementById('field-title').value.trim(),
+        content: document.getElementById('field-content').value
+      };
+
+      statusMsg.className = "text-sm p-4 rounded-xl bg-blue-100 text-blue-800 block";
+      statusMsg.innerText = "저장 중입니다... GitHub API 및 동기화 진행 중";
+      btnSubmit.disabled = true;
+
+      try {
+        const saved = await savePost(postData);
+        statusMsg.className = "text-sm p-4 rounded-xl bg-green-100 text-green-800 block";
+        statusMsg.innerText = "성공적으로 저장되었습니다!";
+        setTimeout(() => {
+          window.location.href = `news-detail.html?id=${saved.id}`;
+        }, 1000);
+      } catch (err) {
+        console.error(err);
+        statusMsg.className = "text-sm p-4 rounded-xl bg-red-100 text-red-800 block";
+        statusMsg.innerText = "저장 실패: " + err.message;
+        btnSubmit.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
