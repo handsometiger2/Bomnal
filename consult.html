@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>봄날부동산 - 상담 신청</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <script id="tailwind-config">
     tailwind.config = {
@@ -79,12 +79,18 @@
             "container-max": "1200px",
             "margin-mobile": "20px",
             "stack-lg": "80px"
+          },
+          fontFamily: {
+            sans: ["Pretendard", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"]
           }
         }
       }
     };
   </script>
   <style>
+    body, button, input, select, textarea {
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif !important;
+    }
     @font-face {
       font-family: 'DesignHouse Bold';
       src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/DesignhouseB.woff') format('woff');
