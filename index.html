@@ -427,16 +427,21 @@
     let carouselTimer = null;
     let carouselIndex = 0;
 
-    document.addEventListener('DOMContentLoaded', async () => {
+    function initPage() {
       startCarousel();
-      await renderBoardPreview();
-    });
+      renderBoardPreview().catch(err => console.error(err));
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPage);
+    } else {
+      initPage();
+    }
 
     const slidesData = [
       {
         title: "내 가족과 함께할<br>봄날 같은 내 집 마련",
-        desc: "신뢰할 수 있는 전문가가 당신의 완벽한 보금자리를 찾아드립니다.<br>
-               프리미엄 중개 서비스로 새로운 시작을 함께하세요."
+        desc: "신뢰할 수 있는 전문가가 당신의 완벽한 보금자리를 찾아드립니다. 프리미엄 중개 서비스로 새로운 시작을 함께하세요."
       },
       {
         title: "월성동 · 달서구 전문<br>프리미엄 부동산 매물",
@@ -460,6 +465,8 @@
       if (images.length === 0) return;
 
       if (carouselTimer) clearInterval(carouselTimer);
+
+      updateCarouselUI();
 
       carouselTimer = setInterval(() => {
         carouselIndex = (carouselIndex + 1) % images.length;
