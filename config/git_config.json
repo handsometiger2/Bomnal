@@ -1,0 +1,6 @@
+{
+  "github_token": "YOUR_GITHUB_TOKEN",
+  "github_owner": "handsometiger2",
+  "github_repo": "Bomnal",
+  "data_file_path": "data/posts.json"
+}
