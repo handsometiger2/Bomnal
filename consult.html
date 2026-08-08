@@ -264,12 +264,47 @@
             <!-- Default Sell view -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label class="block text-body-small text-text-secondary mb-1">매물 주소</label>
-                <input id="field-address1" type="text" placeholder="대구광역시 달서구 (성당, 두류, 월성동 등 동/번지 입력)" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-body-main placeholder:text-text-muted">
+                <label class="block text-body-small text-text-secondary mb-1">매물 지역 (달서구 동 선택)</label>
+                <div class="relative">
+                  <select id="select-sell-location" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-body-main appearance-none text-on-surface cursor-pointer font-medium">
+                    <option value="" disabled selected>해당 동을 선택하세요</option>
+                    <optgroup label="월배 · 월성권">
+                      <option value="월성동">달서구 월성동</option>
+                      <option value="상인동">달서구 상인동</option>
+                      <option value="진천동">달서구 진천동</option>
+                      <option value="유천동">달서구 유천동</option>
+                      <option value="대천동">달서구 대천동</option>
+                      <option value="도원동">달서구 도원동</option>
+                      <option value="대곡동">달서구 대곡동</option>
+                      <option value="월암동">달서구 월암동</option>
+                    </optgroup>
+                    <optgroup label="성당 · 두류 · 본리권">
+                      <option value="성당동">달서구 성당동</option>
+                      <option value="두류동">달서구 두류동</option>
+                      <option value="본리동">달서구 본리동</option>
+                      <option value="감삼동">달서구 감삼동</option>
+                      <option value="죽전동">달서구 죽전동</option>
+                      <option value="본동">달서구 본동</option>
+                      <option value="송현동">달서구 송현동</option>
+                    </optgroup>
+                    <optgroup label="성서 · 이곡 · 신당권">
+                      <option value="용산동">달서구 용산동</option>
+                      <option value="이곡동">달서구 이곡동</option>
+                      <option value="신당동">달서구 신당동</option>
+                      <option value="장기동">달서구 장기동</option>
+                      <option value="호산동">달서구 호산동</option>
+                      <option value="파호동">달서구 파호동</option>
+                      <option value="호림동">달서구 호림동</option>
+                      <option value="갈산동">달서구 갈산동</option>
+                      <option value="장동">달서구 장동</option>
+                    </optgroup>
+                  </select>
+                  <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">arrow_drop_down</span>
+                </div>
               </div>
               <div>
-                <label class="block text-body-small text-text-secondary mb-1">상세 주소</label>
-                <input id="field-address2" type="text" placeholder="상세주소를 입력해주세요 (동, 호수 포함)" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-body-main placeholder:text-text-muted">
+                <label class="block text-body-small text-text-secondary mb-1">상세 주소 (아파트/건물명, 동, 호수)</label>
+                <input id="field-address2" type="text" placeholder="예: e편한세상월배 101동 1502호" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-body-main placeholder:text-text-muted">
               </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -447,11 +482,41 @@
         dynamicFields.innerHTML = `
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="md:col-span-2">
-              <label class="block text-body-small text-text-secondary mb-1">희망 지역</label>
+              <label class="block text-body-small text-text-secondary mb-1">희망 지역 (대구 달서구 법정동)</label>
               <div class="relative">
-                <select class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-body-main appearance-none text-on-surface cursor-pointer">
-                  <option value="" disabled selected>지역 구를 선택하세요</option>
-                  <option value="달서구">달서구</option>
+                <select id="select-location" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-body-main appearance-none text-on-surface cursor-pointer font-medium">
+                  <option value="" disabled selected>희망 동(지역)을 선택하세요</option>
+                  <option value="대구 달서구 전체">대구 달서구 전체</option>
+                  <optgroup label="월배 · 월성권">
+                    <option value="월성동">달서구 월성동</option>
+                    <option value="상인동">달서구 상인동</option>
+                    <option value="진천동">달서구 진천동</option>
+                    <option value="유천동">달서구 유천동</option>
+                    <option value="대천동">달서구 대천동</option>
+                    <option value="도원동">달서구 도원동</option>
+                    <option value="대곡동">달서구 대곡동</option>
+                    <option value="월암동">달서구 월암동</option>
+                  </optgroup>
+                  <optgroup label="성당 · 두류 · 본리권">
+                    <option value="성당동">달서구 성당동</option>
+                    <option value="두류동">달서구 두류동</option>
+                    <option value="본리동">달서구 본리동</option>
+                    <option value="감삼동">달서구 감삼동</option>
+                    <option value="죽전동">달서구 죽전동</option>
+                    <option value="본동">달서구 본동</option>
+                    <option value="송현동">달서구 송현동</option>
+                  </optgroup>
+                  <optgroup label="성서 · 이곡 · 신당권">
+                    <option value="용산동">달서구 용산동</option>
+                    <option value="이곡동">달서구 이곡동</option>
+                    <option value="신당동">달서구 신당동</option>
+                    <option value="장기동">달서구 장기동</option>
+                    <option value="호산동">달서구 호산동</option>
+                    <option value="파호동">달서구 파호동</option>
+                    <option value="호림동">달서구 호림동</option>
+                    <option value="갈산동">달서구 갈산동</option>
+                    <option value="장동">달서구 장동</option>
+                  </optgroup>
                 </select>
                 <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">arrow_drop_down</span>
               </div>
@@ -522,10 +587,48 @@
         
         dynamicFields.innerHTML = `
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="md:col-span-2">
-              <label class="block text-body-small text-text-secondary mb-1">매물 주소</label>
-              <input type="text" placeholder="대구광역시 달서구 (성당, 두류, 월성동 등 동/번지 입력)" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-body-main placeholder:text-text-muted mb-2">
-              <input type="text" placeholder="상세주소를 입력해주세요 (동, 호수 포함)" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-body-main placeholder:text-text-muted">
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">매물 지역 (달서구 동 선택)</label>
+              <div class="relative">
+                <select id="select-sell-location" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-body-main appearance-none text-on-surface cursor-pointer font-medium">
+                  <option value="" disabled selected>해당 동을 선택하세요</option>
+                  <optgroup label="월배 · 월성권">
+                    <option value="월성동">달서구 월성동</option>
+                    <option value="상인동">달서구 상인동</option>
+                    <option value="진천동">달서구 진천동</option>
+                    <option value="유천동">달서구 유천동</option>
+                    <option value="대천동">달서구 대천동</option>
+                    <option value="도원동">달서구 도원동</option>
+                    <option value="대곡동">달서구 대곡동</option>
+                    <option value="월암동">달서구 월암동</option>
+                  </optgroup>
+                  <optgroup label="성당 · 두류 · 본리권">
+                    <option value="성당동">달서구 성당동</option>
+                    <option value="두류동">달서구 두류동</option>
+                    <option value="본리동">달서구 본리동</option>
+                    <option value="감삼동">달서구 감삼동</option>
+                    <option value="죽전동">달서구 죽전동</option>
+                    <option value="본동">달서구 본동</option>
+                    <option value="송현동">달서구 송현동</option>
+                  </optgroup>
+                  <optgroup label="성서 · 이곡 · 신당권">
+                    <option value="용산동">달서구 용산동</option>
+                    <option value="이곡동">달서구 이곡동</option>
+                    <option value="신당동">달서구 신당동</option>
+                    <option value="장기동">달서구 장기동</option>
+                    <option value="호산동">달서구 호산동</option>
+                    <option value="파호동">달서구 파호동</option>
+                    <option value="호림동">달서구 호림동</option>
+                    <option value="갈산동">달서구 갈산동</option>
+                    <option value="장동">달서구 장동</option>
+                  </optgroup>
+                </select>
+                <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">arrow_drop_down</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">상세 주소 (아파트/건물명, 동, 호수)</label>
+              <input type="text" placeholder="예: e편한세상월배 101동 1502호" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-body-main placeholder:text-text-muted">
             </div>
           </div>
           
