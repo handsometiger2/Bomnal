@@ -27,6 +27,34 @@ function requireAdmin() {
   }
 }
 
+function b64ToUtf8(str) {
+  try {
+    const binary = atob(str.replace(/\s+/g, ''));
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) {
+      bytes[i] = binary.charCodeAt(i);
+    }
+    return new TextDecoder('utf-8').decode(bytes);
+  } catch (e) {
+    console.error('UTF-8 b64 decode error:', e);
+    return '';
+  }
+}
+
+function utf8ToB64(str) {
+  try {
+    const bytes = new TextEncoder().encode(str);
+    let binary = '';
+    for (let i = 0; i < bytes.length; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary);
+  } catch (e) {
+    console.error('UTF-8 b64 encode error:', e);
+    return '';
+  }
+}
+
 async function getPosts() {
   const cfg = await loadConfig();
   const rawToken = cfg.github_token || '';
@@ -37,16 +65,18 @@ async function getPosts() {
       const url = `https://api.github.com/repos/${cfg.github_owner}/${cfg.github_repo}/contents/${cfg.data_file_path}`;
       const res = await fetch(url, {
         headers: {
-          'Authorization': 'token ' + token,
+          'Authorization': 'Bearer ' + token,
           'Accept': 'application/vnd.github.v3+json'
         }
       });
       if (res.ok) {
         const data = await res.json();
-        const contentStr = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
-        const posts = JSON.parse(contentStr);
-        localStorage.setItem('posts_cache', JSON.stringify(posts));
-        return posts;
+        const contentStr = b64ToUtf8(data.content);
+        if (contentStr) {
+          const posts = JSON.parse(contentStr);
+          localStorage.setItem('posts_cache', JSON.stringify(posts));
+          return posts;
+        }
       }
     } catch (e) {
       console.warn('GitHub API fetch error:', e);
@@ -103,7 +133,7 @@ async function savePost(postData) {
     try {
       const getRes = await fetch(apiUrl, {
         headers: {
-          'Authorization': 'token ' + token,
+          'Authorization': 'Bearer ' + token,
           'Accept': 'application/vnd.github.v3+json'
         }
       });
@@ -114,7 +144,7 @@ async function savePost(postData) {
     } catch(e) {}
 
     const jsonStr = JSON.stringify(posts, null, 2);
-    const base64Content = btoa(unescape(encodeURIComponent(jsonStr)));
+    const base64Content = utf8ToB64(jsonStr);
 
     const bodyObj = {
       message: 'feat: update posts data via CMS',
@@ -125,7 +155,7 @@ async function savePost(postData) {
     const putRes = await fetch(apiUrl, {
       method: 'PUT',
       headers: {
-        'Authorization': 'token ' + token,
+        'Authorization': 'Bearer ' + token,
         'Content-Type': 'application/json',
         'Accept': 'application/vnd.github.v3+json'
       },
@@ -134,7 +164,7 @@ async function savePost(postData) {
 
     if (!putRes.ok) {
       const errText = await putRes.text();
-      throw new Error(`GitHub API Update Failed (${putRes.status}): ${errText}`);
+      throw new Error(`GitHub 저장 실패 (${putRes.status}): 페이지를 새로고침 후 다시 시도해주세요. 상세내용: ${errText}`);
     }
   }
 
@@ -159,7 +189,7 @@ async function deletePost(id) {
     try {
       const getRes = await fetch(apiUrl, {
         headers: {
-          'Authorization': 'token ' + token,
+          'Authorization': 'Bearer ' + token,
           'Accept': 'application/vnd.github.v3+json'
         }
       });
@@ -170,7 +200,7 @@ async function deletePost(id) {
     } catch(e) {}
 
     const jsonStr = JSON.stringify(posts, null, 2);
-    const base64Content = btoa(unescape(encodeURIComponent(jsonStr)));
+    const base64Content = utf8ToB64(jsonStr);
 
     const bodyObj = {
       message: 'feat: delete post via CMS',
@@ -181,7 +211,7 @@ async function deletePost(id) {
     const putRes = await fetch(apiUrl, {
       method: 'PUT',
       headers: {
-        'Authorization': 'token ' + token,
+        'Authorization': 'Bearer ' + token,
         'Content-Type': 'application/json',
         'Accept': 'application/vnd.github.v3+json'
       },
@@ -190,7 +220,7 @@ async function deletePost(id) {
 
     if (!putRes.ok) {
       const errText = await putRes.text();
-      throw new Error(`GitHub API Delete Failed (${putRes.status}): ${errText}`);
+      throw new Error(`GitHub 삭제 실패 (${putRes.status}): ${errText}`);
     }
   }
 
