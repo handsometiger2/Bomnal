@@ -483,10 +483,10 @@
           const summary = markdownToText(post.content || '').slice(0, 60);
           const imageUrl = post.image || 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop';
           return `
-            <article onclick="location.href='news-detail.html?id=${post.id}'" class="bg-surface-white rounded-xl overflow-hidden border border-outline-variant/30 hover:shadow-xl transition-all duration-300 flex flex-col h-full group cursor-pointer">
-              <div class="h-48 overflow-hidden relative bg-surface-container-high">
-                <img src="${imageUrl}" alt="${escapeHtml(post.title || '')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop';">
-                <span class="absolute top-3 left-3 bg-primary text-white font-label-caps text-xs font-semibold px-3 py-1 rounded-full shadow-md">${escapeHtml(post.category || '소식')}</span>
+            <article onclick="location.href='news-detail.html?id=${post.id}'" class="bg-surface-white rounded-2xl overflow-hidden border border-outline-variant/30 hover:shadow-2xl transition-all duration-300 flex flex-col h-full group cursor-pointer">
+              <div class="h-64 md:h-72 overflow-hidden relative bg-surface-container-high">
+                <img src="${imageUrl}" alt="${escapeHtml(post.title || '')}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop';">
+                <span class="absolute top-4 left-4 bg-primary text-white font-label-caps text-xs font-bold px-3.5 py-1.5 rounded-full shadow-lg">${escapeHtml(post.category || '소식')}</span>
               </div>
               <div class="p-6 flex flex-col flex-grow text-left">
                 <h3 class="font-tile-heading text-on-surface mb-3 font-bold line-clamp-2 group-hover:text-primary transition-colors">${escapeHtml(post.title || '')}</h3>
