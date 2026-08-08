@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>봄날부동산 - 월성동의 따뜻한 봄날 같은 내 집 마련</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed": "#001b3e",
+            "on-primary-container": "#fcfbff",
+            "on-error": "#ffffff",
+            "surface-tint": "#005cbb",
+            "outline": "#717785",
+            "surface-bright": "#f9f9fb",
+            "tertiary-fixed-dim": "#aac7ff",
+            "on-secondary": "#ffffff",
+            "tertiary": "#0059b4",
+            "primary-container": "#0071e3",
+            "on-primary": "#ffffff",
+            "surface-white": "#FFFFFF",
+            "surface": "#f9f9fb",
+            "tertiary-container": "#2172d9",
+            "secondary-fixed": "#e4e2e4",
+            "secondary": "#5f5e60",
+            "link-blue": "#0066CC",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#f0f0f2",
+            "surface-container-high": "#e8e8ea",
+            "primary-fixed": "#d7e2ff",
+            "on-tertiary-fixed-variant": "#00458e",
+            "surface-variant": "#e2e2e4",
+            "on-tertiary-container": "#fcfbff",
+            "outline-variant": "#c1c6d6",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f3f3f5",
+            "primary": "#0059b5",
+            "secondary-fixed-dim": "#c8c6c8",
+            "background": "#f9f9fb",
+            "on-tertiary": "#ffffff",
+            "inverse-primary": "#abc7ff",
+            "primary-fixed-dim": "#abc7ff",
+            "inverse-surface": "#2f3132",
+            "on-surface-variant": "#414753",
+            "tertiary-fixed": "#d7e3ff",
+            "text-secondary": "#515154",
+            "surface-dim": "#d9dadc",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#636264",
+            "secondary-container": "#e2dfe1",
+            "surface-container": "#eeeef0",
+            "on-primary-fixed-variant": "#00458f",
+            "text-muted": "#6E6E73",
+            "on-secondary-fixed-variant": "#474649",
+            "on-surface": "#1a1c1d",
+            "on-secondary-fixed": "#1b1b1d",
+            "surface-container-highest": "#e2e2e4",
+            "on-background": "#1a1c1d",
+            "on-primary-fixed": "#001b3f"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "container-max": "1200px",
+            "stack-lg": "80px",
+            "gutter": "20px",
+            "stack-sm": "20px",
+            "stack-md": "40px",
+            "margin-desktop": "40px",
+            "margin-mobile": "20px"
+          },
+          fontFamily: {
+            "label-caps": ["Inter"],
+            "tile-heading": ["Inter"],
+            "display-hero": ["Inter"],
+            "body-large": ["Inter"],
+            "body-small": ["Inter"],
+            "section-title-mobile": ["Inter"],
+            "body-main": ["Inter"],
+            "display-hero-mobile": ["Inter"],
+            "caption": ["Inter"],
+            "section-title": ["Inter"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { background-color: #F5F5F7; }
+    .carousel-img {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .carousel-img.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="antialiased text-on-surface">
+
+  <nav class="bg-surface-white/80 dark:bg-surface-dim/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30">
+    <div class="w-full px-margin-desktop flex justify-between items-center h-20">
+      <div class="flex items-center h-10 font-bold">
+        <a href="index.html" class="flex items-center h-full">
+          <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD55N4085FL70nsJ-HPxvYmzzO1Htz6zRq2Lz3ovs1Nz8g0GCqJzpRC7YnXSC065OU9M5so1T4ffDguSKdxhcdJp_ANkUpg_cbV4CgYos-MA1Jm9TLXxKkLVlIvyZRbJZdMW1A9hqKcPCRRaJ4DBFuhLeHD-j0mPhwIuqSjWirqCcTXq0Yyb_sh-GEBQapvd1oTdBvHHBpk_gqfaiRs1lwyGc4WJ9rVO6my6TaWFE3Zb2-PdwNUzgi8oKAy9w0FDjXDKIM">
+        </a>
+      </div>
+      <div class="hidden md:flex gap-8 font-body-main text-body-main font-bold">
+        <a class="text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-transform hover:opacity-80" href="index.html">홈</a>
+        <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 hover:opacity-80" href="news.html">부동산 소식</a>
+        <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 hover:opacity-80" href="#services-section">서비스</a>
+        <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 hover:opacity-80" href="#realtor-section">중개사 소개</a>
+      </div>
+      <a class="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform hover:opacity-80" href="tel:010-0000-0000">
+        전화 문의하기
+      </a>
+    </div>
+  </nav>
+
+  <header class="relative pt-20 h-screen min-h-[600px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img class="carousel-img w-full h-full object-cover absolute top-0 left-0" src="https://lh3.googleusercontent.com/aida/AP1WRLs2RFkWFO4D1OeWI0G-4PWV25-NOPizBjxKnSxPv6aTSZV7dkSw-lTA4Kx46kxxpsxVhtCo96U_DU_3SPJoyfCCt3PeSCOfcfsemezcIx-Gue6NuEQs_QMSPXjP_ac5Nbi10GRGntJNl2ueUtXq8qIBPu13oWBWt90cusrpQaLe3EJ5I2YemlFif6Pq7guJQP6ZmHL2Y-4bGDhp35o1Ft3hf0GWNaAXMY79I3xkPo2cnSWoHk23fqqWD38g">
+      <img class="carousel-img w-full h-full object-cover absolute top-0 left-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9oUQxsTL_mK42vhUfjoFgNBV5RlmMBhoX6oU-d5MQ1VFu9xxDibKVUBFmtgfxtjqoJPfVT79C-x3qGcOVcrroYEQQg1V2f-I-9JJ0RqM0H1gUBfysP7Eq5UnHE9TeRZFuTLq2t-a0l27r5UCwWI0aBD06_ky3SupMdRA_1cCV5_CHo41jiW3zGtr1r-TE8MBwKbFVmBwS4Bg22JggG3l20hVdjr2c20kfzzWiGsunAG3SB4MPJFUteA">
+      <img class="carousel-img w-full h-full object-cover absolute top-0 left-0 active" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6yiD93T5O8WKJK-Zos0s0jkhxzypEaDLYglE1JsXQKcoRUBPhq_ZJC1dGKE1zuE6zfTorUO03nA8as8W70L5oDEcsI8qEpkUlFRMLIKZAcnxcVJyIaqPvZ5eA3hXNpZjLZmrky8qeQ7YQiYVNgo3b1QQgtCBnIWioTT2fYs_mJqJF_fiFTr4H0Z-HJNLDLy4oVxPLSblLXu6QPqAJrS8qEU2wBew8zv4l8YTMIUHYrmtaYMwA5g1E2Q">
+      <div class="absolute inset-0 bg-black/40 z-10"></div>
+    </div>
+    <div class="relative z-20 px-margin-mobile md:px-margin-desktop w-full flex flex-col justify-center max-w-container-max mx-auto items-start text-left">
+      <h1 class="font-display-hero-mobile md:font-display-hero text-on-primary mb-stack-sm font-bold text-4xl md:text-6xl text-left">내 가족과 함께할<br>봄날 같은 내 집 마련</h1>
+      <p class="font-body-large text-on-primary/90 mb-stack-md max-w-2xl text-lg font-medium text-left">
+        신뢰할 수 있는 전문가가 당신의 완벽한 보금자리를 찾아드립니다. 프리미엄 중개 서비스로 새로운 시작을 함께하세요.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a class="inline-flex items-center gap-2 bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-lg" href="tel:010-0000-0000">
+          <span class="material-symbols-outlined" data-icon="call">call</span>
+          지금 바로 전화 상담하기
+        </a>
+        <button onclick="openConsultModal()" class="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
+          <span class="material-symbols-outlined">edit_calendar</span>
+          온라인 상담 신청
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section id="services-section" class="w-full px-margin-mobile md:px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+    <div class="mb-stack-md text-left">
+      <h2 class="font-section-title-mobile md:font-section-title text-on-surface mb-2 text-4xl font-bold md:text-5xl">프리미엄 부동산 서비스</h2>
+      <p class="font-body-main text-text-secondary text-lg font-bold">고객님의 자산을 안전하고 가치 있게 관리합니다.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter text-left">
+      <div class="bg-surface-white rounded-xl p-6 border border-outline-variant/30 hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mb-4 text-primary">
+          <span class="material-symbols-outlined text-3xl">home_work</span>
+        </div>
+        <h3 class="font-tile-heading text-on-surface mb-2">맞춤 매물 중개</h3>
+        <p class="font-body-small text-text-secondary">라이프스타일과 예산에 맞춘 최적의 주거 및 상업용 부동산을 정확하게 매칭해 드립니다.</p>
+      </div>
+      <div class="bg-surface-white rounded-xl p-6 border border-outline-variant/30 hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mb-4 text-primary">
+          <span class="material-symbols-outlined text-3xl">gavel</span>
+        </div>
+        <h3 class="font-tile-heading text-on-surface mb-2">철저한 권리 분석</h3>
+        <p class="font-body-small text-text-secondary">복잡한 등기부등본 및 권리 관계를 투명하고 안전하게 분석하여 고객의 자산을 보호합니다.</p>
+      </div>
+      <div class="bg-surface-white rounded-xl p-6 border border-outline-variant/30 hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mb-4 text-primary">
+          <span class="material-symbols-outlined text-3xl">trending_up</span>
+        </div>
+        <h3 class="font-tile-heading text-on-surface mb-2">전략적 자산 관리</h3>
+        <p class="font-body-small text-text-secondary">급변하는 부동산 시장 동향을 파악하여 장기적인 관점의 투자 및 자산 관리 솔루션을 제공합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="realtor-section" class="bg-surface-container-low py-stack-lg">
+    <div class="w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <div class="mb-stack-md text-left">
+        <h2 class="font-section-title-mobile md:font-section-title text-on-surface mb-2 text-4xl font-bold md:text-5xl">대표 중개사 소개</h2>
+        <p class="font-body-main text-text-secondary text-lg font-bold">대구 월성동 10년의 노하우로 책임 중개합니다.</p>
+      </div>
+      <div class="bg-surface-white rounded-2xl p-8 md:p-12 border border-outline-variant/30 shadow-lg flex flex-col md:flex-row gap-8 items-center text-left">
+        <div class="w-full md:w-1/3 aspect-square rounded-2xl overflow-hidden bg-surface-container-high border-4 border-white shadow-md relative">
+          <img src="profile.jpg" alt="대표 중개사 사진" class="w-full h-full object-cover" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'absolute inset-0 flex items-center justify-center text-text-muted flex-col gap-2 text-center\'><span class=\'material-symbols-outlined text-5xl\'>person</span><span class=\'font-label-caps\'>대표 중개사</span></div>';">
+        </div>
+        <div class="w-full md:w-2/3">
+          <div class="mb-6">
+            <h3 class="font-display-hero-mobile text-on-surface font-bold mb-2">김봄날 대표</h3>
+            <p class="text-primary font-bold text-xl">대구 월성동 부동산 전문가</p>
+          </div>
+          <div class="space-y-4 font-body-main text-text-secondary mb-8">
+            <p>안녕하세요. 봄날부동산 대표 공인중개사 김봄날입니다. 대구 월성동 지역에서만 10년 넘게 고객님들의 보금자리를 찾아드리며 쌓아온 경험과 노하우를 바탕으로, 정직하고 투명한 중개 서비스를 약속드립니다.</p>
+            <p>단순한 거래를 넘어, 고객님의 새로운 시작을 응원하는 든든한 파트너가 되겠습니다.</p>
+          </div>
+          <ul class="space-y-3 font-body-main text-on-surface inline-block text-left">
+            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> 대구 월성동 지역 공인중개사 경력 10년 이상</li>
+            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> 부동산 자산관리사 및 권리분석 전문가 자격 보유</li>
+            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">check_circle</span> 전세사기 안심보장 중개업소 지정</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="board-preview" class="py-stack-lg w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="mb-stack-md flex flex-col justify-center text-left items-start">
+      <h2 class="font-section-title-mobile md:font-section-title text-on-surface mb-2 text-4xl font-bold md:text-5xl">최신 소식</h2>
+      <p class="font-body-main text-text-secondary text-lg font-bold">알아두면 돈이 되는 부동산 소식과 정보를 전해드립니다.</p>
+    </div>
+    <div id="latest-posts-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+    </div>
+    <div class="mt-8 text-center">
+      <a href="news.html" class="inline-flex items-center gap-2 bg-surface-white border border-outline-variant px-8 py-3 rounded-full font-bold text-primary hover:bg-primary hover:text-white transition-all shadow-sm">
+        전체 게시글 보기 <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="relative py-stack-lg overflow-hidden flex items-start text-left">
+    <div class="absolute inset-0 z-0">
+      <img alt="Consultation Background" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVsVeixJ_KwvFOUPR-tavw8TlXywqdnLaOHhz1M6GI3N8XdPlslGvtN2HX5XVEwqt_ejhGfYl5g3a5QLMtzD2Tm6xIerVyBJIRtVcbfmJlnyFhgLlnDrOS_1krQCqmBo7Xs_6nUVj6JfDdftAXIRnA7ENm2vfnksakmaVcBYdgwdjIk8LqETZJWNXMY9nk8HXcIeg96_Bo3j2vzFULARaBYxm-SItaOs685k9juFTkDOAUzSxLjCJfb8hjvXVlw2qEKlI">
+      <div class="absolute inset-0 bg-black/40 z-10"></div>
+    </div>
+    <div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-left">
+      <div class="max-w-2xl text-left justify-start">
+        <h2 class="font-section-title-mobile md:font-section-title mb-4 text-white text-4xl font-bold md:text-5xl">내 집 마련의 꿈, 봄날과 함께 시작하세요</h2>
+        <p class="font-body-large text-text-secondary mb-8 text-white text-xl font-bold">전문가와의 1:1 상담을 통해 가장 적합한 보금자리를 찾아드립니다.</p>
+        <div class="flex flex-col sm:flex-row gap-4 flex-wrap text-left justify-start">
+          <button onclick="openConsultModal()" class="inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-6 h-14 rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-lg active:scale-95 min-w-[180px]">
+            <span class="material-symbols-outlined text-[24px]">calendar_month</span>
+            <span>상담 예약하기</span>
+          </button>
+          <a class="inline-flex items-center justify-center gap-2 border border-white text-white px-6 h-14 rounded-full font-bold text-lg hover:bg-white/10 transition-colors active:scale-95 min-w-[180px]" href="tel:010-0000-0000">
+            <span class="material-symbols-outlined text-[24px]">call</span>
+            <span>전화로 문의하기</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant w-full py-stack-md">
+    <div class="w-full px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-container-max mx-auto">
+      <div class="flex items-center h-8 font-bold">
+        <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGskRYDvYgICjk89DxvER4EUl2x4b24y-8G9FqiAj8fdVbbMMBnr0Flg8uZgmdhRFxJNA-Fqx_hkKcBI5UBG4Qegb8Fw--AC7fBumcze5CPKb-F5X1ogao9KQElue8LaeJ_EOQJU5f_4C-1VVyC_j2N2HJwyHNdSpZtHZlaRQGPFF3jcnMLvQ5_xHu9sn4BIojDSRHpdYdBEidQt3Z-XNLF8i0d5PIAbQVtLkosBVVd8MKOwq3fN9IdeE3rWu34FZCacc">
+      </div>
+      <div class="flex gap-4 font-caption text-caption text-text-muted">
+        <a class="hover:text-primary hover:underline" href="#">이용약관</a>
+        <a class="hover:text-primary hover:underline" href="#">개인정보처리방침</a>
+        <a id="agent-login-btn" href="admin.html" class="hover:text-primary hover:underline font-bold text-primary">Agent Login</a>
+      </div>
+      <div class="font-caption text-caption text-text-muted text-center">
+        © 2026 봄날공인중개사사무소. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <nav class="bg-surface-white/90 dark:bg-surface-dim/90 backdrop-blur-lg fixed bottom-0 w-full z-50 md:hidden border-t border-outline-variant/50 shadow-lg pb-safe">
+    <div class="flex justify-around items-center h-16">
+      <a class="flex flex-col items-center justify-center text-primary font-bold active:scale-90" href="index.html">
+        <span class="material-symbols-outlined mb-1">home</span>
+        <span class="font-label-caps text-xs">홈</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90" href="news.html">
+        <span class="material-symbols-outlined mb-1">grid_view</span>
+        <span class="font-label-caps text-xs">소식</span>
+      </a>
+      <button onclick="openConsultModal()" class="flex flex-col items-center justify-center text-text-muted active:scale-90">
+        <span class="material-symbols-outlined mb-1">calendar_month</span>
+        <span class="font-label-caps text-xs">상담신청</span>
+      </button>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90" href="tel:010-0000-0000">
+        <span class="material-symbols-outlined mb-1">call</span>
+        <span class="font-label-caps text-xs">전화문의</span>
+      </a>
+    </div>
+  </nav>
+
+  <div id="consult-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-surface-dim rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+      <button onclick="closeConsultModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+      <h3 class="text-2xl font-bold mb-2 text-on-surface">1:1 부동산 맞춤 상담 신청</h3>
+      <p class="text-text-secondary text-sm mb-6">성함과 연락처를 남겨주시면 대표 중개사가 친절하게 상담 도와드립니다.</p>
+      <form id="consult-form" onsubmit="handleConsultSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-sm font-semibold mb-1">성함 *</label>
+          <input type="text" id="consult-name" required placeholder="홍길동" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">연락처 *</label>
+          <input type="tel" id="consult-phone" required placeholder="010-0000-0000" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">희망 상담 내용</label>
+          <textarea id="consult-memo" rows="3" placeholder="관심 매물, 지역, 예산 등 문의사항을 적어주세요." class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"></textarea>
+        </div>
+        <div id="consult-msg" class="hidden text-sm p-3 rounded-lg"></div>
+        <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity">상담 신청 완료</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="db.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const images = document.querySelectorAll('.carousel-img');
+      let currentIndex = 0;
+      if (images.length > 0) {
+        setInterval(() => {
+          images[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex + 1) % images.length;
+          images[currentIndex].classList.add('active');
+        }, 5000);
+      }
+
+      await renderBoardPreview();
+    });
+
+    async function renderBoardPreview() {
+      const previewSec = document.getElementById('board-preview');
+      const grid = document.getElementById('latest-posts-grid');
+      if (!grid || !previewSec) return;
+
+      try {
+        const posts = await getPosts();
+        if (!posts || posts.length === 0) {
+          previewSec.style.display = 'none';
+          return;
+        }
+
+        previewSec.style.display = 'block';
+        const latest = posts.slice(0, 3);
+        
+        grid.innerHTML = latest.map(post => {
+          const summary = markdownToText(post.content || '').slice(0, 60);
+          return `
+            <article onclick="location.href='news-detail.html?id=${post.id}'" class="bg-surface-white rounded-xl overflow-hidden border border-outline-variant/30 hover:shadow-lg transition-shadow flex flex-col h-full group cursor-pointer">
+              <div class="p-6 flex flex-col flex-grow text-left">
+                <span class="text-primary font-label-caps text-xs font-semibold mb-2">${escapeHtml(post.category || '소식')}</span>
+                <h3 class="font-tile-heading text-on-surface mb-3 font-bold line-clamp-2 group-hover:text-primary transition-colors">${escapeHtml(post.title || '')}</h3>
+                <p class="font-body-small text-text-secondary mb-4 line-clamp-2 text-sm">${escapeHtml(summary)}...</p>
+                <div class="mt-auto flex justify-between items-center border-t border-outline-variant/20 pt-4">
+                  <span class="font-caption text-xs text-text-muted">${escapeHtml(post.date || '')}</span>
+                  <span class="text-primary font-bold text-sm flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+      } catch (e) {
+        console.error(e);
+        previewSec.style.display = 'none';
+      }
+    }
+
+    function openConsultModal() {
+      document.getElementById('consult-modal').classList.remove('hidden');
+    }
+    function closeConsultModal() {
+      document.getElementById('consult-modal').classList.add('hidden');
+    }
+    function handleConsultSubmit(e) {
+      e.preventDefault();
+      const msg = document.getElementById('consult-msg');
+      msg.className = "text-sm p-3 rounded-lg bg-green-100 text-green-800 block";
+      msg.innerText = "상담 신청이 정상 접수되었습니다! 빠른 시일 내에 연락드리겠습니다.";
+      setTimeout(() => {
+        closeConsultModal();
+        document.getElementById('consult-form').reset();
+        msg.className = "hidden text-sm p-3 rounded-lg";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
