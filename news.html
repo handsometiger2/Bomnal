@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>봄날 부동산 소식 &amp; 경제 가이드</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -109,17 +109,17 @@
     };
   </script>
   <style>
-    body { font-family: 'Inter', sans-serif; background-color: #F5F5F7; }
+    body { background-color: #F5F5F7; }
   </style>
 </head>
-<body class="antialiased text-on-surface flex flex-col min-h-screen pt-20 pb-16 md:pb-0">
+<body class="antialiased text-on-surface min-h-screen flex flex-col pt-20 pb-16 md:pb-0">
 
-  <!-- TopNavBar (Web) -->
+  <!-- TopNavBar -->
   <nav class="bg-surface-white/80 dark:bg-surface-dim/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30">
-    <div class="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-20">
+    <div class="w-full px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20 max-w-container-max mx-auto">
       <div class="flex items-center h-10 font-bold">
         <a href="index.html" class="flex items-center h-full">
-          <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_EIAsxgY5pqP7mLWqDt9sC5ednZ3NrKY6oblerpS3pLSVYW9244_Imr8ECmIaILiwhfE0s7HveDaKPgSouJBTg8SCg18Pmjtmm0uP1752zFQVVG7I0sbTXWKxZaWYmzc5AsFdgGo2ovcWThy9yZAv4sPxClzg6GEZCZo2rtH_aFsn8g2THFYF3hAjeEv_mAiAMmC-PymefwZzB4X4FxNpcq9pEoCB64Mwj3vAWTD8tmfs59nVKet360nmRKFbaAD60uE"/>
+          <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_EIAsxgY5pqP7mLWqDt9sC5ednZ3NrKY6oblerpS3pLSVYW9244_Imr8ECmIaILiwhfE0s7HveDaKPgSouJBTg8SCg18Pmjtmm0uP1752zFQVVG7I0sbTXWKxZaWYmzc5AsFdgGo2ovcWThy9yZAv4sPxClzg6GEZCZo2rtH_aFsn8g2THFYF3hAjeEv_mAiAMmC-PymefwZzB4X4FxNpcq9pEoCB64Mwj3vAWTD8tmfs59nVKet360nmRKFbaAD60uE">
         </a>
       </div>
       <div class="hidden md:flex gap-8 font-body-main text-body-main font-bold">
@@ -129,58 +129,81 @@
         <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 transition-transform hover:opacity-80 transition-opacity" href="consult.html">상담 신청</a>
         <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 transition-transform hover:opacity-80 transition-opacity" href="map.html">오시는 길</a>
       </div>
-      <a class="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform hover:opacity-80 transition-opacity" href="tel:010-0000-0000">
+      <a class="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform hover:opacity-80 transition-opacity" href="tel:010-3260-5229">
         전화 문의하기
       </a>
+      <button onclick="toggleMobileMenu()" class="md:hidden text-on-surface p-2 focus:outline-none">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
     </div>
   </nav>
 
+  <!-- Mobile Slide-out Menu Drawer -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden transition-opacity">
+    <div class="fixed top-0 right-0 w-4/5 max-w-sm h-full bg-white dark:bg-surface-dim shadow-2xl p-6 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-center pb-6 border-b border-outline-variant/30">
+          <span class="font-tile-heading text-xl font-bold text-primary">봄날부동산 메뉴</span>
+          <button onclick="toggleMobileMenu()" class="text-text-muted p-1">
+            <span class="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-4 mt-6 font-body-main text-lg font-bold">
+          <a href="index.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">home</span> 홈</a>
+          <a href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73" target="_blank" rel="noopener noreferrer" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">storefront</span> 네이버 매물</a>
+          <a href="news.html" class="text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">newspaper</span> 부동산 소식</a>
+          <a href="consult.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">calendar_month</span> 온라인 상담 신청</a>
+          <a href="map.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">location_on</span> 오시는 길</a>
+        </nav>
+      </div>
+      <div class="pt-6 border-t border-outline-variant/30">
+        <a href="tel:010-3260-5229" class="w-full bg-primary text-white py-3 rounded-full font-bold flex items-center justify-center gap-2 text-center">
+          <span class="material-symbols-outlined">call</span> 전화 문의하기
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Main Content -->
   <main class="flex-grow max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop pt-stack-sm md:pt-stack-md pb-stack-lg">
-    <!-- Header Section -->
     <section class="mb-stack-md text-center md:text-left">
       <h1 class="font-display-hero-mobile text-display-hero-mobile md:font-display-hero md:text-display-hero text-on-surface mb-4 font-bold">
         봄날 부동산 소식 &amp; 경제 가이드
       </h1>
       <p class="font-body-large text-body-large text-text-secondary max-w-2xl">
         최신 부동산 동향, 세금 가이드, 그리고 지역 경제 뉴스를 한눈에 확인하세요. 
-        정확하고 발 빠른 정보로 성공적인 투자를 돕습니다.
       </p>
     </section>
 
-    <!-- Search & Filter Controls -->
-    <div class="flex flex-col md:flex-row gap-4 mb-8 justify-between items-center bg-surface-white p-4 rounded-2xl border border-outline-variant/30 shadow-sm">
-      <div id="category-filter" class="flex flex-wrap gap-2 w-full md:w-auto">
-        <button onclick="filterCategory('전체')" class="cat-btn bg-primary text-white px-4 py-2 rounded-full text-sm font-bold shadow-sm transition-all">전체</button>
-        <button onclick="filterCategory('부동산 동향')" class="cat-btn bg-surface-container text-text-secondary hover:bg-primary-fixed px-4 py-2 rounded-full text-sm font-bold transition-all">부동산 동향</button>
-        <button onclick="filterCategory('세금 가이드')" class="cat-btn bg-surface-container text-text-secondary hover:bg-primary-fixed px-4 py-2 rounded-full text-sm font-bold transition-all">세금 가이드</button>
-        <button onclick="filterCategory('정부 정책')" class="cat-btn bg-surface-container text-text-secondary hover:bg-primary-fixed px-4 py-2 rounded-full text-sm font-bold transition-all">정부 정책</button>
+    <!-- Filters & Search Bar -->
+    <section class="mb-stack-md flex flex-col md:flex-row justify-between items-center gap-4 bg-surface-white p-4 rounded-xl border border-outline-variant/30 shadow-sm">
+      <div id="category-filters" class="flex flex-wrap gap-2 w-full md:w-auto">
+        <button onclick="filterCategory('전체')" class="filter-btn active px-4 py-2 rounded-full text-sm font-semibold bg-primary text-on-primary">전체</button>
+        <button onclick="filterCategory('부동산 동향')" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-surface-container-low text-text-secondary hover:bg-surface-container-high">부동산 동향</button>
+        <button onclick="filterCategory('세금/법률')" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-surface-container-low text-text-secondary hover:bg-surface-container-high">세금/법률</button>
+        <button onclick="filterCategory('월성동 소식')" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-surface-container-low text-text-secondary hover:bg-surface-container-high">월성동 소식</button>
       </div>
-      <div class="relative w-full md:w-80">
-        <input type="text" id="search-input" oninput="handleSearch()" placeholder="검색어를 입력하세요..." class="w-full pl-10 pr-4 py-2.5 bg-surface border border-outline-variant/40 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary">
-        <span class="material-symbols-outlined absolute left-3 top-3 text-gray-400 text-lg">search</span>
-      </div>
-    </div>
 
-    <!-- Bento Grid / Instagram Style News Cards -->
-    <section id="news-list" class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-gutter">
+      <div class="relative w-full md:w-72">
+        <input id="search-input" onkeyup="handleSearch()" type="text" placeholder="검색어를 입력하세요..." class="w-full pl-10 pr-4 py-2 rounded-full border border-outline-variant/50 focus:outline-none focus:border-primary text-sm bg-surface-container-lowest">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted text-xl">search</span>
+      </div>
     </section>
 
-    <div id="empty-msg" class="hidden text-center py-16 bg-surface-white rounded-2xl border border-outline-variant/30">
-      <span class="material-symbols-outlined text-5xl text-gray-300 mb-2">find_in_page</span>
-      <p class="text-text-secondary font-bold text-lg">검색 조건에 맞는 게시글이 없습니다.</p>
-    </div>
+    <!-- Articles Grid -->
+    <section id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    </section>
   </main>
 
   <!-- Footer -->
   <footer class="bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant w-full py-stack-md mt-auto">
-    <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
+    <div class="w-full px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-container-max mx-auto">
       <div class="flex items-center h-8 font-bold">
-        <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9ZiGoK4jUHJi70XR8tJaiwzIMoRKxl7X6NIhtK7aXas4vathDfyMybHrrUeXBERLY_BuL3Hxx8KgN9pfMNuaz6v7x1FDKkOdez_ihpQ_jO6_c3QpDY4HjZKIIG1A4fqfFmeQXDzrr8ml4_PiQC5ZURpwe-U0_pvMv5Da7znDRHSQoaewWQPHmdY-ynzqX-hhHCkRQOBSS5WgCHKBeE7xGorXxR29xFpRLDAU6Dc5BxgkEx7RSvBDYEdGQ4UucDlu_wTM"/>
+        <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9ZiGoK4jUHJi70XR8tJaiwzIMoRKxl7X6NIhtK7aXas4vathDfyMybHrrUeXBERLY_BuL3Hxx8KgN9pfMNuaz6v7x1FDKkOdez_ihpQ_jO6_c3QpDY4HjZKIIG1A4fqfFmeQXDzrr8ml4_PiQC5ZURpwe-U0_pvMv5Da7znDRHSQoaewWQPHmdY-ynzqX-hhHCkRQOBSS5WgCHKBeE7xGorXxR29xFpRLDAU6Dc5BxgkEx7RSvBDYEdGQ4UucDlu_wTM">
       </div>
       <div class="flex gap-4 font-caption text-caption text-text-muted">
-        <a class="text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-opacity" href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73" target="_blank" rel="noopener noreferrer">네이버 매물</a>
-        <a class="hover:text-primary hover:underline transition-colors active:scale-95 transition-transform" href="#">개인정보처리방침</a>
+        <a class="hover:text-primary hover:underline transition-colors" href="#">이용약관</a>
+        <a class="hover:text-primary hover:underline transition-colors" href="#">개인정보처리방침</a>
         <a id="agent-login-btn" href="admin.html" class="hover:text-primary hover:underline font-bold text-primary transition-colors">Agent Login</a>
       </div>
       <div class="font-caption text-caption text-text-muted text-center">
@@ -189,100 +212,108 @@
     </div>
   </footer>
 
-  <!-- BottomNavBar (Mobile) -->
-  <nav class="bg-surface-white/90 dark:bg-surface-dim/90 backdrop-blur-lg fixed bottom-0 w-full z-50 md:hidden border-t border-outline-variant/50 shadow-lg pb-safe">
-    <div class="flex justify-around items-center h-16">
+  <!-- BottomNavBar (Mobile Only with 5 Items) -->
+  <nav class="bg-surface-white/90 dark:bg-surface-dim/90 backdrop-blur-lg fixed bottom-0 w-full z-40 md:hidden border-t border-outline-variant/50 shadow-lg pb-safe">
+    <div class="flex justify-around items-center h-16 text-xs font-bold">
       <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="index.html">
-        <span class="material-symbols-outlined mb-1" data-icon="home">home</span>
-        <span class="font-label-caps text-label-caps">홈</span>
+        <span class="material-symbols-outlined mb-0.5">home</span>
+        <span>홈</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 transition-transform" href="news.html">
-        <span class="material-symbols-outlined mb-1" data-icon="grid_view" style="font-variation-settings: 'FILL' 1;">grid_view</span>
-        <span class="font-label-caps text-label-caps">소식</span>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73" target="_blank" rel="noopener noreferrer">
+        <span class="material-symbols-outlined mb-0.5">storefront</span>
+        <span>네이버매물</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="admin.html">
-        <span class="material-symbols-outlined mb-1">admin_panel_settings</span>
-        <span class="font-label-caps text-label-caps">관리자</span>
+      <a class="flex flex-col items-center justify-center text-primary active:scale-90 transition-transform" href="news.html">
+        <span class="material-symbols-outlined mb-0.5">newspaper</span>
+        <span>소식</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="tel:010-0000-0000">
-        <span class="material-symbols-outlined mb-1" data-icon="call">call</span>
-        <span class="font-label-caps text-label-caps">전화문의</span>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="consult.html">
+        <span class="material-symbols-outlined mb-0.5">calendar_month</span>
+        <span>상담신청</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="map.html">
+        <span class="material-symbols-outlined mb-0.5">location_on</span>
+        <span>오시는길</span>
       </a>
     </div>
   </nav>
 
   <script src="db.js"></script>
   <script>
-    const sampleThumbnails = [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCZs8oelJtR0vbAg9I9rF99cXOA9MuSN7i6_IRG8Wx3WhDZjjQKrv7-n8kAJN47gmbdz5wxVpyzOoVSjkUig-Q4hyWgnTcsR-L8mpfbcYO1_zsy3Hs98UrfiHEKI2eL7PrgkZ67RHYPpKYTsqutEj72RMVtqZagC30AxGBStAuzDK6TD4qHqx3WH3iZgtg4KXyaJwm7rrSrbrKudyBpLy-KyCg0X9usPLtUl4qFULsQ6pdYRcCKHDvQzA",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDJ9ty1NQUSVlwJdfKcKRB13ZEaUUxmRGcFW2cl0JjTlk7FUHresVleHd0wIEcj1_ChRa9SxxMhf3BOY1-y6NYxRJc1nu_yfjKCmBouLggCAXpQN7XvAGOM0shji5tLLfNTPjq_Lz3a-Cdb4h2RSs3n7xT893UV-jm-bXmo3Whp5uYlUy6uew8VRPUBWJji0EVe_83y85fxTcEeM418mn98nOQ2DpK2laPia05FrnApm1yucSWzFLbw7w",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA-iwZ2raXM4VsR7_eLAmaJaJYyhfndFC-DnQ3LnlntHlJKGKo2OTD_rKAlCq_gYfpZ8mnvUCaRqTmukzgpExz2BoNFYyJ-yqKdCOa6JXaSdbsXP12BPWttQBTF5klTaAgXM6MON4FLytISmDvp5EOECemZWacAZK2--CO07zeEqhp-eR1tC0r-wQIxzzQIMROo8bzCuDL40P7cw4msgHSFW8bvKlQXlOyGeo6vI5eEI8Uhp_NsouiKTQ",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCey1uFAqoP9jgKgRibQ1t_FyG8tryzMs8Hz9tJf9SvmandF8fxjY6--KcHN6KOlA92aEXZnqHP1JyXTLh6m4rTfs2o-DauFISDQ0xSPRf0q0PnGP4ozlQB0FJC5d7lC-7yUsU1bupMEFw4NLXCf8sTinnlMv03nlty_WehB9PclXvZ-ArsQ5EJ1EzC5OTWQTOpgdG2_93kcJXSu5-CheCLZz9-gkiMvuJMXazTVz-3Ox77LSnJqe4GWA",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAKNyEaZj9PfQ2Ir7utCTMbJZquwadgdoeALW4LSEecFshwoecVekdsIh4OrgopeN7Y1L1vwGmYoAMFEJYo2Rom5mEd66K30ZjUv9XGhZ7Fr0S9_rMxlmISr5lElp2rdpdJ91O_HgYhuSlh5kKHaQJO-X9L6xuosLWCywudHbdlxi0eQtIQFGAW4b2sWqraMWhS07Ts_ghGhGSRfiU834fN_NFrPhq23DyotmrbQfRT1qK1gGZAtzJeHA",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCMOLS2ufKGj_XY4sK4POjL5QJ3qvMat2Yu6nMadPD3_JdLTM4T9ItHeJSBjI_HqTBbbR5-SYclxU5gj6HfI5cwEY28Mb5ZlcoOWuidbR0GLA2TOAOkXsnxnVBBkFaHV5Jikc9DZlsaCjnC1BYB9_qUAFrXrudj3AWPfKMk4BH0shJKl09oD3x2pmGv4KWS4aEtJyhI8CxziJugv4K5uL_w4CHNs9x6SZMONOrrg-si7EcepNm-Fe5LkA"
-    ];
-
     let allPosts = [];
-    let currentCategory = '전체';
+    let activeCategory = '전체';
 
     document.addEventListener('DOMContentLoaded', async () => {
-      allPosts = await getPosts();
-      renderPosts();
+      await loadAndRenderPosts();
     });
 
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-menu-drawer');
+      if (drawer) {
+        drawer.classList.toggle('hidden');
+      }
+    }
+
+    async function loadAndRenderPosts() {
+      const grid = document.getElementById('posts-grid');
+      try {
+        allPosts = await getPosts();
+        renderFilteredPosts();
+      } catch(e) {
+        console.error(e);
+        grid.innerHTML = '<p class="text-text-muted col-span-full text-center py-12">게시글을 불러올 수 없습니다.</p>';
+      }
+    }
+
     function filterCategory(cat) {
-      currentCategory = cat;
-      const btns = document.querySelectorAll('.cat-btn');
+      activeCategory = cat;
+      const btns = document.querySelectorAll('.filter-btn');
       btns.forEach(b => {
         if (b.innerText.trim() === cat) {
-          b.className = "cat-btn bg-primary text-white px-4 py-2 rounded-full text-sm font-bold shadow-sm transition-all";
+          b.className = "filter-btn active px-4 py-2 rounded-full text-sm font-semibold bg-primary text-on-primary";
         } else {
-          b.className = "cat-btn bg-surface-container text-text-secondary hover:bg-primary-fixed px-4 py-2 rounded-full text-sm font-bold transition-all";
+          b.className = "filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-surface-container-low text-text-secondary hover:bg-surface-container-high";
         }
       });
-      renderPosts();
+      renderFilteredPosts();
     }
 
     function handleSearch() {
-      renderPosts();
+      renderFilteredPosts();
     }
 
-    function renderPosts() {
-      const newsList = document.getElementById('news-list');
-      const emptyMsg = document.getElementById('empty-msg');
-      const query = document.getElementById('search-input').value.toLowerCase().trim();
+    function renderFilteredPosts() {
+      const grid = document.getElementById('posts-grid');
+      const searchVal = (document.getElementById('search-input')?.value || '').toLowerCase().trim();
 
       let filtered = allPosts;
-      if (currentCategory !== '전체') {
-        filtered = filtered.filter(p => p.category === currentCategory);
+      if (activeCategory !== '전체') {
+        filtered = filtered.filter(p => p.category === activeCategory);
       }
-      if (query) {
+      if (searchVal) {
         filtered = filtered.filter(p => 
-          (p.title && p.title.toLowerCase().includes(query)) ||
-          (p.content && p.content.toLowerCase().includes(query))
+          (p.title || '').toLowerCase().includes(searchVal) || 
+          (p.content || '').toLowerCase().includes(searchVal)
         );
       }
 
       if (filtered.length === 0) {
-        newsList.innerHTML = '';
-        emptyMsg.classList.remove('hidden');
+        grid.innerHTML = '<p class="text-text-muted col-span-full text-center py-12">조건에 맞는 게시글이 없습니다.</p>';
         return;
       }
 
-      emptyMsg.classList.add('hidden');
-      newsList.innerHTML = filtered.map((post, idx) => {
-        const thumbUrl = post.image || sampleThumbnails[idx % sampleThumbnails.length];
+      grid.innerHTML = filtered.map(post => {
+        const summary = markdownToText(post.content || '').slice(0, 70);
         return `
-          <article onclick="location.href='news-detail.html?id=${post.id}'" class="group cursor-pointer relative bg-surface-white rounded-xl overflow-hidden border border-outline-variant/30 hover:border-primary hover:shadow-md transition-all">
-            <div class="aspect-square w-full relative overflow-hidden bg-surface-container-high">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" src="${thumbUrl}" alt="${escapeHtml(post.title || '')}" />
-              <span class="absolute top-2 left-2 bg-primary/90 text-white text-[11px] font-bold px-2 py-0.5 rounded-md backdrop-blur-sm">${escapeHtml(post.category || '소식')}</span>
-            </div>
-            <div class="p-4 bg-surface-white">
-              <h3 class="font-body-main text-body-main text-on-surface line-clamp-2 font-semibold mb-1 group-hover:text-primary transition-colors">
-                ${escapeHtml(post.title || '')}
-              </h3>
-              <p class="font-caption text-caption text-text-muted text-xs">${escapeHtml(post.date || '')}</p>
+          <article onclick="location.href='news-detail.html?id=${post.id}'" class="bg-surface-white rounded-xl overflow-hidden border border-outline-variant/30 hover:shadow-lg transition-shadow flex flex-col h-full group cursor-pointer">
+            <div class="p-6 flex flex-col flex-grow text-left">
+              <span class="text-primary font-label-caps text-xs font-semibold mb-2">${escapeHtml(post.category || '소식')}</span>
+              <h3 class="font-tile-heading text-on-surface mb-3 font-bold line-clamp-2 group-hover:text-primary transition-colors">${escapeHtml(post.title || '')}</h3>
+              <p class="font-body-small text-text-secondary mb-4 line-clamp-3 text-sm">${escapeHtml(summary)}...</p>
+              <div class="mt-auto flex justify-between items-center border-t border-outline-variant/20 pt-4">
+                <span class="font-caption text-xs text-text-muted">${escapeHtml(post.date || '')}</span>
+                <span class="text-primary font-bold text-sm flex items-center gap-1">자세히 보기 <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+              </div>
             </div>
           </article>
         `;
