@@ -81,13 +81,23 @@
             "margin-mobile": "20px"
           },
           fontFamily: {
-            sans: ["Pretendard", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"]
+            sans: ["Pretendard", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"],
+            "tile-heading": ["DesignHouse Bold", "Pretendard", "sans-serif"]
           }
         }
       }
     };
   </script>
   <style>
+    @font-face {
+      font-family: 'DesignHouse Bold';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/DesignhouseB.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .font-tile-heading {
+      font-family: 'DesignHouse Bold', 'Pretendard', sans-serif !important;
+    }
     body, button, input, select, textarea {
       font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif !important;
       background-color: #F5F5F7;
