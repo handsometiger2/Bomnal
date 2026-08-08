@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>봄날부동산 - 맞춤 부동산 상담 신청</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary-fixed": "#1b1b1d",
+            "primary": "#0059b5",
+            "on-primary": "#ffffff",
+            "surface": "#f9f9fb",
+            "primary-fixed": "#d7e2ff",
+            "outline": "#717785",
+            "on-secondary-fixed-variant": "#474649",
+            "outline-variant": "#c1c6d6",
+            "on-primary-fixed": "#001b3f",
+            "on-secondary": "#ffffff",
+            "on-background": "#1a1c1d",
+            "surface-container": "#eeeef0",
+            "surface-white": "#FFFFFF",
+            "secondary": "#5f5e60",
+            "on-secondary-container": "#636264",
+            "surface-container-high": "#e8e8ea",
+            "on-tertiary-container": "#fcfbff",
+            "on-surface-variant": "#414753",
+            "primary-container": "#0071e3",
+            "tertiary-fixed-dim": "#aac7ff",
+            "surface-container-low": "#f3f3f5",
+            "on-tertiary-fixed-variant": "#00458e",
+            "inverse-on-surface": "#f0f0f2",
+            "text-muted": "#6E6E73",
+            "on-primary-fixed-variant": "#00458f",
+            "background": "#f9f9fb",
+            "surface-tint": "#005cbb",
+            "on-tertiary": "#ffffff",
+            "text-secondary": "#515154",
+            "surface-container-highest": "#e2e2e4",
+            "tertiary": "#0059b4",
+            "surface-variant": "#e2e2e4",
+            "secondary-fixed": "#e4e2e4",
+            "on-surface": "#1a1c1d",
+            "link-blue": "#0066CC",
+            "surface-container-lowest": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface-bright": "#f9f9fb",
+            "secondary-container": "#e2dfe1",
+            "primary-fixed-dim": "#abc7ff",
+            "surface-dim": "#d9dadc",
+            "on-tertiary-fixed": "#001b3e",
+            "on-error": "#ffffff",
+            "tertiary-container": "#2172d9",
+            "tertiary-fixed": "#d7e3ff",
+            "on-primary-container": "#fcfbff",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#abc7ff",
+            "secondary-fixed-dim": "#c8c6c8",
+            "error": "#ba1a1a",
+            "inverse-surface": "#2f3132"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "stack-md": "40px",
+            "margin-desktop": "40px",
+            "stack-sm": "20px",
+            "gutter": "20px",
+            "container-max": "1200px",
+            "margin-mobile": "20px",
+            "stack-lg": "80px"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @font-face {
+      font-family: 'DesignHouse Bold';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/DesignhouseB.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .font-tile-heading {
+      font-family: 'DesignHouse Bold', 'Inter', sans-serif !important;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #0071e3;
+    }
+    .segmented-btn.active {
+      background-color: #ffffff;
+      border: 2px solid #0071e3;
+      color: #1a1c1d;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .segmented-btn.inactive {
+      background-color: #f3f3f5;
+      border: 2px solid transparent;
+      color: #717785;
+    }
+    ::-webkit-scrollbar { display: none; }
+    * { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-surface-white text-on-surface font-body-main antialiased pb-[100px]">
+
+  <!-- TopNavBar -->
+  <header class="fixed top-0 w-full z-50 bg-surface-white/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+    <div class="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="flex items-center gap-2">
+          <img alt="봄날부동산 로고" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBFT679fxR8QAWDO7WBR-9tiPFXFm9ZaXzLlvzwbz_Xa5-kJIgao2_oalJVSBl5SxFmi7ceVMblNZSNnP5QQqYRDsAeZTjMV6IcM4QFuTR-wVCdnG1NC27tE6XvFKnCfNN6yfZCcLNlKp7BThJzaSIm9WRgLSK5Hm0pP3b9T8him9qECDxhbfVrMwAOd67EHJfHuL-03ftRMPlDF_tgekiaV55lTRPvh2GckZN8XL4bT6G9cR5D8XnXPqNRp8I9BuxOrE">
+          <span class="font-tile-heading text-tile-heading font-bold text-primary dark:text-primary-fixed">봄날부동산</span>
+        </a>
+      </div>
+      <nav class="hidden md:flex gap-8">
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="index.html">홈</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="news.html">부동산 소식</a>
+        <a class="text-primary font-bold border-b-2 border-primary pb-1" href="consult.html">상담 신청</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors" href="admin.html">관리자</a>
+      </nav>
+      <a href="tel:010-0000-0000" class="hidden md:block bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:opacity-90 transition-opacity">전화 문의하기</a>
+    </div>
+  </header>
+
+  <main class="pt-16 max-w-2xl mx-auto md:px-margin-desktop bg-surface-white min-h-screen">
+    <!-- Top Tabs (주거 / 상가 / 고급 주거) -->
+    <div class="flex border-b border-outline-variant/30 mt-4 md:mt-8 px-margin-mobile md:px-0 text-center relative">
+      <button onclick="selectMainCategory(this)" class="flex-1 py-3 font-bold text-primary tab-btn active relative">주거</button>
+      <button onclick="selectMainCategory(this)" class="flex-1 py-3 text-text-muted tab-btn relative">상가·사무실·병의원</button>
+      <button onclick="selectMainCategory(this)" class="flex-1 py-3 text-text-muted tab-btn relative">고급 주거</button>
+    </div>
+
+    <div class="px-margin-mobile md:px-0 mt-6">
+      <!-- Segmented Control (집을 구하고 있어요 / 집을 팔고 싶어요) -->
+      <div class="bg-surface-container-low p-1 rounded-lg flex mb-6">
+        <button class="flex-1 py-3 px-2 rounded-md segmented-btn text-center transition-all duration-200 active" id="btn-buy" onclick="switchTab('buy')">
+          <span class="block text-[11px] text-text-muted mb-0.5 pointer-events-none">집을 구하고 있어요</span>
+          <span class="block font-bold text-sm pointer-events-none">임차인 · 매수인</span>
+        </button>
+        <button class="flex-1 py-3 px-2 rounded-md segmented-btn text-center transition-all duration-200 inactive" id="btn-sell" onclick="switchTab('sell')">
+          <span class="block text-[11px] text-text-muted mb-0.5 pointer-events-none">집을 팔고 싶어요</span>
+          <span class="block font-bold text-sm pointer-events-none">임대인 · 매도인</span>
+        </button>
+      </div>
+
+      <!-- Info Banner -->
+      <div class="bg-surface-container-low rounded-lg p-4 mb-8 flex gap-3 items-start">
+        <span class="material-symbols-outlined text-on-surface-variant text-sm mt-0.5" style="font-variation-settings: 'FILL' 1;">info</span>
+        <div>
+          <p class="font-body-small text-body-small font-medium text-on-surface mb-1">현재 대구광역시 달서구 지역만 우선 제공하고 있으며, 추후 확대 예정입니다.</p>
+          <p class="text-[12px] text-text-muted">신청 가능지역 : 대구광역시 달서구 전 지역 (성당동, 두류동, 파호동, 호림동, 갈산동, 신당동, 이곡동, 장동, 장기동, 용산동, 죽전동, 본리동, 감삼동, 본동, 송현동, 상인동, 도원동, 진천동, 유천동, 대천동, 월성동, 월암동 등)</p>
+        </div>
+      </div>
+
+      <!-- Form Content -->
+      <form class="space-y-8" id="consulting-form" onsubmit="handleConsultingSubmit(event)">
+        <!-- Section 1: Basic Info -->
+        <section>
+          <h2 class="font-tile-heading text-[18px] font-bold text-on-surface mb-4">기본 정보</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">이름 *</label>
+              <input id="input-name" required class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main placeholder:text-text-muted" placeholder="이름을 입력해주세요" type="text">
+            </div>
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">연락처 *</label>
+              <input id="input-phone" required class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main placeholder:text-text-muted" placeholder="-없이 입력해주세요" type="tel">
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Property Info (Dynamic based on tab) -->
+        <section>
+          <h2 class="font-tile-heading text-[18px] font-bold text-on-surface mb-4" id="section-title-property">매물 조건</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1" id="label-prop-type">희망 매물종류</label>
+              <div class="relative">
+                <select id="select-prop-type" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main appearance-none text-on-surface cursor-pointer">
+                  <option disabled selected value="">원룸/투룸이상/오피스텔 등</option>
+                  <option value="원룸">원룸</option>
+                  <option value="투룸/쓰리룸">투룸/쓰리룸</option>
+                  <option value="오피스텔">오피스텔</option>
+                  <option value="아파트">아파트</option>
+                </select>
+                <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">arrow_drop_down</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">거래 유형</label>
+              <div class="relative">
+                <select id="select-trade-type" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main appearance-none text-on-surface cursor-pointer">
+                  <option disabled selected value="">월세/전세/매매</option>
+                  <option value="월세">월세</option>
+                  <option value="전세">전세</option>
+                  <option value="매매">매매</option>
+                </select>
+                <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">arrow_drop_down</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Fields Container -->
+          <div class="space-y-4" id="dynamic-fields">
+          </div>
+
+          <!-- Common Additional Requests -->
+          <div class="mt-4">
+            <label class="block text-body-small text-text-secondary mb-1">추가 요청사항 (선택)</label>
+            <textarea id="input-memo" maxlength="500" oninput="updateCharCount(this)" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main placeholder:text-text-muted resize-none" placeholder="추가 요청사항을 입력해주세요" rows="4"></textarea>
+            <div id="char-count" class="text-right mt-1 text-[12px] text-text-muted">0/500자</div>
+          </div>
+
+          <div id="submit-msg" class="hidden text-sm p-4 rounded-xl mt-4"></div>
+
+          <button class="w-full bg-primary text-on-primary font-bold text-[18px] py-4 rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-[0.98] mt-8 shadow-lg" id="submit-btn" type="submit">신청하기</button>
+        </section>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full mt-stack-lg bg-surface-container dark:bg-surface-container-high pb-24 md:pb-stack-md">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-md">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center gap-2">
+            <img alt="봄날부동산 로고" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBFT679fxR8QAWDO7WBR-9tiPFXFm9ZaXzLlvzwbz_Xa5-kJIgao2_oalJVSBl5SxFmi7ceVMblNZSNnP5QQqYRDsAeZTjMV6IcM4QFuTR-wVCdnG1NC27tE6XvFKnCfNN6yfZCcLNlKp7BThJzaSIm9WRgLSK5Hm0pP3b9T8him9qECDxhbfVrMwAOd67EHJfHuL-03ftRMPlDF_tgekiaV55lTRPvh2GckZN8XL4bT6G9cR5D8XnXPqNRp8I9BuxOrE">
+            <span class="font-tile-heading text-tile-heading font-bold text-on-surface">봄날부동산</span>
+          </div>
+          <p class="text-body-small text-text-secondary max-w-xs leading-relaxed">
+            봄날공인중개사<br>대구광역시 달서구 월성로 132, 301동 B103호<br>
+            | 등록번호: 27290-2015-00013 <br>
+            | 사업자번호: 514-19-90245<br>
+            | 대표공인중개사: 장순조 <br>
+            | Tel: 053-642-0008
+          </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div class="flex flex-col gap-3">
+            <h4 class="font-bold text-on-surface">바로가기</h4>
+            <a class="text-body-small text-text-secondary hover:text-primary" href="index.html">홈</a>
+            <a class="text-body-small text-text-secondary hover:text-primary" href="news.html">부동산 소식</a>
+            <a class="text-body-small text-text-secondary hover:text-primary" href="admin.html">관리자</a>
+          </div>
+          <div class="flex flex-col gap-3">
+            <h4 class="font-bold text-on-surface">고객지원</h4>
+            <a class="text-body-small text-text-secondary hover:text-primary" href="#">이용약관</a>
+            <a class="text-body-small text-text-secondary hover:text-primary" href="#">개인정보처리방침</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-outline-variant/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-body-small text-text-muted">© 2026 봄날부동산 (Spring Day Real Estate). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentTab = 'buy';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      switchTab('buy');
+    });
+
+    function selectMainCategory(btn) {
+      const topTabs = document.querySelectorAll('.tab-btn');
+      topTabs.forEach(t => {
+        t.classList.remove('active', 'font-bold', 'text-primary');
+        t.classList.add('text-text-muted');
+      });
+      btn.classList.remove('text-text-muted');
+      btn.classList.add('active', 'font-bold', 'text-primary');
+    }
+
+    function updateCharCount(el) {
+      const charCount = document.getElementById('char-count');
+      if (charCount) {
+        charCount.innerText = `${el.value.length}/500자`;
+      }
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      const btnBuy = document.getElementById('btn-buy');
+      const btnSell = document.getElementById('btn-sell');
+      const sectionTitle = document.getElementById('section-title-property');
+      const labelPropType = document.getElementById('label-prop-type');
+      const dynamicFields = document.getElementById('dynamic-fields');
+
+      if (tab === 'buy') {
+        btnBuy.className = "flex-1 py-3 px-2 rounded-md segmented-btn text-center transition-all duration-200 active";
+        btnSell.className = "flex-1 py-3 px-2 rounded-md segmented-btn text-center transition-all duration-200 inactive";
+        sectionTitle.textContent = '매물 조건';
+        labelPropType.textContent = '희망 매물종류';
+        
+        dynamicFields.innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="md:col-span-2">
+              <label class="block text-body-small text-text-secondary mb-1">희망 지역</label>
+              <div class="relative">
+                <select id="field-dong" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main appearance-none text-on-surface cursor-pointer">
+                  <option value="" disabled selected>지역 동을 선택하세요</option>
+                  <option value="월성동">월성동</option>
+                  <option value="상인동">상인동</option>
+                  <option value="진천동">진천동</option>
+                  <option value="유천동">유천동</option>
+                  <option value="본리동">본리동</option>
+                  <option value="감삼동">감삼동</option>
+                  <option value="죽전동">죽전동</option>
+                  <option value="용산동">용산동</option>
+                  <option value="이곡동">이곡동</option>
+                  <option value="신당동">신당동</option>
+                </select>
+                <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">arrow_drop_down</span>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">보증금/매입금 예산</label>
+              <div class="relative flex items-center">
+                <input id="field-budget" type="text" placeholder="-" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main pr-12 text-right">
+                <span class="absolute right-4 text-body-main text-on-surface">만원</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">희망 월세</label>
+              <div class="relative flex items-center">
+                <input id="field-rent" type="text" placeholder="-" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main pr-12 text-right">
+                <span class="absolute right-4 text-body-main text-on-surface">만원</span>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">희망 평 수</label>
+              <div class="relative flex items-center">
+                <input id="field-size" type="text" placeholder="-" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main pr-10 text-right">
+                <span class="absolute right-4 text-body-main text-on-surface">평</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">입주 희망시기(~이후)</label>
+              <div class="relative">
+                <input id="field-move-date" type="date" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main">
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        btnSell.className = "flex-1 py-3 px-2 rounded-md segmented-btn text-center transition-all duration-200 active";
+        btnBuy.className = "flex-1 py-3 px-2 rounded-md segmented-btn text-center transition-all duration-200 inactive";
+        sectionTitle.textContent = '매물 정보';
+        labelPropType.textContent = '매물 종류';
+        
+        dynamicFields.innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="md:col-span-2">
+              <label class="block text-body-small text-text-secondary mb-1">매물 주소</label>
+              <input id="field-address1" type="text" placeholder="대구광역시 달서구 (동/번지 입력)" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main mb-2">
+              <input id="field-address2" type="text" placeholder="상세주소를 입력해주세요 (동, 호수 포함)" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">보증금/매매가</label>
+              <div class="relative flex items-center">
+                <input id="field-price" type="text" placeholder="-" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main pr-12 text-right">
+                <span class="absolute right-4 text-body-main text-on-surface">만원</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">월세</label>
+              <div class="relative flex items-center">
+                <input id="field-rent" type="text" placeholder="-" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main pr-12 text-right">
+                <span class="absolute right-4 text-body-main text-on-surface">만원</span>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">매물 평 수</label>
+              <div class="relative flex items-center">
+                <input id="field-size" type="text" placeholder="-" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main pr-10 text-right">
+                <span class="absolute right-4 text-body-main text-on-surface">평</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-body-small text-text-secondary mb-1">입주 가능시기(~이후)</label>
+              <div class="relative">
+                <input id="field-move-date" type="date" class="w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-white focus:outline-none focus:ring-2 focus:ring-primary text-body-main">
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function handleConsultingSubmit(e) {
+      e.preventDefault();
+      const submitMsg = document.getElementById('submit-msg');
+      const submitBtn = document.getElementById('submit-btn');
+
+      submitBtn.disabled = true;
+      submitMsg.className = "text-sm p-4 rounded-xl mt-4 bg-green-100 text-green-800 block font-bold text-center";
+      submitMsg.innerText = "상담 신청이 완료되었습니다! 빠른 시일 내에 연락드리겠습니다.";
+
+      setTimeout(() => {
+        document.getElementById('consulting-form').reset();
+        submitMsg.className = "hidden text-sm p-4 rounded-xl mt-4";
+        submitBtn.disabled = false;
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
