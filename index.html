@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>봄날부동산 - 월성동의 따뜻한 봄날 같은 내 집 마련</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -81,16 +81,17 @@
             "margin-mobile": "20px"
           },
           fontFamily: {
-            "label-caps": ["Inter"],
-            "tile-heading": ["Inter"],
-            "display-hero": ["Inter"],
-            "body-large": ["Inter"],
-            "body-small": ["Inter"],
-            "section-title-mobile": ["Inter"],
-            "body-main": ["Inter"],
-            "display-hero-mobile": ["Inter"],
-            "caption": ["Inter"],
-            "section-title": ["Inter"]
+            sans: ["Pretendard", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"],
+            "label-caps": ["Pretendard"],
+            "tile-heading": ["Pretendard"],
+            "display-hero": ["Pretendard"],
+            "body-large": ["Pretendard"],
+            "body-small": ["Pretendard"],
+            "section-title-mobile": ["Pretendard"],
+            "body-main": ["Pretendard"],
+            "display-hero-mobile": ["Pretendard"],
+            "caption": ["Pretendard"],
+            "section-title": ["Pretendard"]
           },
           fontSize: {
             "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
@@ -109,7 +110,10 @@
     };
   </script>
   <style>
-    body { background-color: #F5F5F7; }
+    body, button, input, select, textarea {
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif !important;
+      background-color: #F5F5F7;
+    }
     .carousel-img {
       opacity: 0;
       transition: opacity 1.5s ease-in-out;
