@@ -141,7 +141,6 @@
       <a class="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform hover:opacity-80 transition-opacity" href="tel:010-3260-5229">
         전화 문의하기
       </a>
-      <!-- Mobile Menu Toggle Button -->
       <button onclick="toggleMobileMenu()" class="md:hidden text-on-surface p-2 focus:outline-none">
         <span class="material-symbols-outlined text-3xl">menu</span>
       </button>
@@ -160,8 +159,8 @@
         </div>
         <nav class="flex flex-col gap-4 mt-6 font-body-main text-lg font-bold">
           <a href="index.html" class="text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">home</span> 홈</a>
-          <a href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73" target="_blank" rel="noopener noreferrer" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">storefront</span> 네이버 매물</a>
-          <a href="news.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">newspaper</span> 부동산 소식</a>
+          <a href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73" target="_blank" rel="noopener noreferrer" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">domain</span> 네이버 매물</a>
+          <a href="news.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">grid_view</span> 부동산 소식</a>
           <a href="consult.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">calendar_month</span> 온라인 상담 신청</a>
           <a href="map.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">location_on</span> 오시는 길</a>
         </nav>
@@ -174,7 +173,7 @@
     </div>
   </div>
 
-  <!-- Hero Section with Working Carousel -->
+  <!-- Hero Section with Working Carousel (Cleaned typography classes) -->
   <header class="relative pt-20 h-screen min-h-[600px] flex items-center overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img class="carousel-img active w-full h-full object-cover absolute top-0 left-0" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" alt="Hero background 1">
@@ -183,13 +182,13 @@
       <div class="absolute inset-0 bg-black/40 z-10"></div>
     </div>
     <div class="relative z-20 px-margin-mobile md:px-margin-desktop w-full flex flex-col justify-center max-w-container-max mx-auto items-start text-left">
-      <h1 class="font-display-hero-mobile md:font-display-hero text-on-primary mb-stack-sm font-bold text-4xl md:text-6xl text-5xl md:text-7xl text-left">내 가족과 함께할<br>봄날 같은 내 집 마련</h1>
-      <p class="font-body-large text-on-primary/90 mb-stack-md max-w-2xl text-lg font-medium text-xl font-bold text-left">
+      <h1 class="text-4xl md:text-6xl font-bold text-on-primary mb-stack-sm text-left leading-tight">내 가족과 함께할<br>봄날 같은 내 집 마련</h1>
+      <p class="text-lg md:text-xl font-bold text-on-primary/90 mb-stack-md max-w-2xl text-left leading-relaxed">
         신뢰할 수 있는 전문가가 당신의 완벽한 보금자리를 찾아드립니다. 프리미엄 중개 서비스로 새로운 시작을 함께하세요.
       </p>
       <div class="flex flex-wrap gap-4">
         <a class="inline-flex items-center gap-2 bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-lg" href="tel:010-3260-5229">
-          <span class="material-symbols-outlined" data-icon="call" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">call</span>
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
           지금 바로 전화 상담하기
         </a>
         <a href="consult.html" class="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
@@ -201,7 +200,7 @@
 
     <!-- Carousel Indicator Dots -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-      <button onclick="setCarouselSlide(0)" class="carousel-dot w-3 h-3 rounded-full bg-white transition-all opacity-100"></button>
+      <button onclick="setCarouselSlide(0)" class="carousel-dot w-6 h-3 rounded-full bg-white transition-all opacity-100"></button>
       <button onclick="setCarouselSlide(1)" class="carousel-dot w-3 h-3 rounded-full bg-white transition-all opacity-40"></button>
       <button onclick="setCarouselSlide(2)" class="carousel-dot w-3 h-3 rounded-full bg-white transition-all opacity-40"></button>
     </div>
@@ -216,21 +215,21 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter text-left">
       <div class="bg-surface-white rounded-xl p-6 border border-outline-variant/30 hover:shadow-lg transition-shadow">
         <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mb-4 text-primary">
-          <span class="material-symbols-outlined text-3xl" data-icon="home_work">home_work</span>
+          <span class="material-symbols-outlined text-3xl">home_work</span>
         </div>
         <h3 class="font-tile-heading text-on-surface mb-2">맞춤 매물 중개</h3>
         <p class="font-body-small text-text-secondary">라이프스타일과 예산에 맞춘 최적의 주거 및 상업용 부동산을 정확하게 매칭해 드립니다.</p>
       </div>
       <div class="bg-surface-white rounded-xl p-6 border border-outline-variant/30 hover:shadow-lg transition-shadow">
         <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mb-4 text-primary">
-          <span class="material-symbols-outlined text-3xl" data-icon="gavel">gavel</span>
+          <span class="material-symbols-outlined text-3xl">gavel</span>
         </div>
         <h3 class="font-tile-heading text-on-surface mb-2">철저한 권리 분석</h3>
         <p class="font-body-small text-text-secondary">복잡한 등기부등본 및 권리 관계를 투명하고 안전하게 분석하여 고객의 자산을 보호합니다.</p>
       </div>
       <div class="bg-surface-white rounded-xl p-6 border border-outline-variant/30 hover:shadow-lg transition-shadow">
         <div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center mb-4 text-primary">
-          <span class="material-symbols-outlined text-3xl" data-icon="trending_up">trending_up</span>
+          <span class="material-symbols-outlined text-3xl">trending_up</span>
         </div>
         <h3 class="font-tile-heading text-on-surface mb-2">전략적 자산 관리</h3>
         <p class="font-body-small text-text-secondary">급변하는 부동산 시장 동향을 파악하여 장기적인 관점의 투자 및 자산 관리 솔루션을 제공합니다.</p>
@@ -324,7 +323,7 @@
     </div>
   </section>
 
-  <!-- Guarantee Section -->
+  <!-- Guarantee Section (Card 1 with onerror fallback) -->
   <section class="bg-surface-white py-stack-lg">
     <div class="w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-left">
       <div class="mb-stack-md text-left">
@@ -335,7 +334,7 @@
         <!-- Left Card -->
         <div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-lg text-left">
           <div class="h-64 overflow-hidden">
-            <img alt="사고발생을 대비하기 위한 공제증서 지원" class="w-full h-full object-cover" src="card1.jpg">
+            <img alt="사고발생을 대비하기 위한 공제증서 지원" class="w-full h-full object-cover" src="card1.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=2070&auto=format&fit=crop';">
           </div>
           <div class="p-8 text-left">
             <h3 class="font-tile-heading text-primary mb-4">사고발생을 대비하기 위한<br>공제증서 지원</h3>
@@ -377,28 +376,34 @@
     </div>
   </footer>
 
-  <!-- BottomNavBar (Mobile Only with 5 Items) -->
+  <!-- Unified 6-Item Mobile Bottom Navigation Bar -->
   <nav class="bg-surface-white/90 dark:bg-surface-dim/90 backdrop-blur-lg fixed bottom-0 w-full z-40 md:hidden border-t border-outline-variant/50 shadow-lg pb-safe">
-    <div class="flex justify-around items-center h-16 text-xs font-bold">
-      <a class="flex flex-col items-center justify-center text-primary active:scale-90 transition-transform" href="index.html">
-        <span class="material-symbols-outlined mb-0.5">home</span>
-        <span>홈</span>
+    <div class="flex justify-around items-center h-16 overflow-x-auto">
+      <a class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 transition-transform shrink-0 px-1" href="index.html">
+        <span class="material-symbols-outlined text-[20px] mb-1">home</span>
+        <span class="font-label-caps text-[10px]">홈</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73" target="_blank" rel="noopener noreferrer">
-        <span class="material-symbols-outlined mb-0.5">storefront</span>
-        <span>네이버매물</span>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform shrink-0 px-1"
+         href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73"
+         target="_blank" rel="noopener noreferrer">
+        <span class="material-symbols-outlined text-[20px] mb-1">domain</span>
+        <span class="font-label-caps text-[10px]">매물</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="news.html">
-        <span class="material-symbols-outlined mb-0.5">newspaper</span>
-        <span>소식</span>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform shrink-0 px-1" href="news.html">
+        <span class="material-symbols-outlined text-[20px] mb-1">grid_view</span>
+        <span class="font-label-caps text-[10px]">소식</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="consult.html">
-        <span class="material-symbols-outlined mb-0.5">calendar_month</span>
-        <span>상담신청</span>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform shrink-0 px-1" href="consult.html">
+        <span class="material-symbols-outlined text-[20px] mb-1">calendar_month</span>
+        <span class="font-label-caps text-[10px]">상담신청</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="map.html">
-        <span class="material-symbols-outlined mb-0.5">location_on</span>
-        <span>오시는길</span>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform shrink-0 px-1" href="map.html">
+        <span class="material-symbols-outlined text-[20px] mb-1">location_on</span>
+        <span class="font-label-caps text-[10px]">오시는길</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform shrink-0 px-1" href="tel:010-3260-5229">
+        <span class="material-symbols-outlined text-[20px] mb-1">call</span>
+        <span class="font-label-caps text-[10px]">전화</span>
       </a>
     </div>
   </nav>
@@ -452,11 +457,9 @@
 
       dots.forEach((dot, i) => {
         if (i === carouselIndex) {
-          dot.classList.remove('opacity-40');
-          dot.classList.add('opacity-100', 'w-6');
+          dot.className = "carousel-dot w-6 h-3 rounded-full bg-white transition-all opacity-100";
         } else {
-          dot.classList.remove('opacity-100', 'w-6');
-          dot.classList.add('opacity-40', 'w-3');
+          dot.className = "carousel-dot w-3 h-3 rounded-full bg-white transition-all opacity-40";
         }
       });
     }
