@@ -121,11 +121,11 @@
     }
   </style>
 </head>
-<body class="antialiased text-on-surface">
+<body class="antialiased text-on-surface pb-16 md:pb-0">
 
   <!-- TopNavBar -->
   <nav class="bg-surface-white/80 dark:bg-surface-dim/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30">
-    <div class="w-full px-margin-desktop flex justify-between items-center h-20">
+    <div class="w-full px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20 max-w-container-max mx-auto">
       <div class="flex items-center h-10 font-bold">
         <a href="index.html" class="flex items-center h-full">
           <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD55N4085FL70nsJ-HPxvYmzzO1Htz6zRq2Lz3ovs1Nz8g0GCqJzpRC7YnXSC065OU9M5so1T4ffDguSKdxhcdJp_ANkUpg_cbV4CgYos-MA1Jm9TLXxKkLVlIvyZRbJZdMW1A9hqKcPCRRaJ4DBFuhLeHD-j0mPhwIuqSjWirqCcTXq0Yyb_sh-GEBQapvd1oTdBvHHBpk_gqfaiRs1lwyGc4WJ9rVO6my6TaWFE3Zb2-PdwNUzgi8oKAy9w0FDjXDKIM">
@@ -138,11 +138,41 @@
         <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 transition-transform hover:opacity-80 transition-opacity font-bold" href="consult.html">상담 신청</a>
         <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 transition-transform hover:opacity-80 transition-opacity font-bold" href="map.html">오시는 길</a>
       </div>
-      <a class="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform hover:opacity-80 transition-opacity" href="tel:010-0000-0000">
+      <a class="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform hover:opacity-80 transition-opacity" href="tel:010-3260-5229">
         전화 문의하기
       </a>
+      <!-- Mobile Menu Toggle Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden text-on-surface p-2 focus:outline-none">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Slide-out Menu Drawer -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden transition-opacity">
+    <div class="fixed top-0 right-0 w-4/5 max-w-sm h-full bg-white dark:bg-surface-dim shadow-2xl p-6 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-center pb-6 border-b border-outline-variant/30">
+          <span class="font-tile-heading text-xl font-bold text-primary">봄날부동산 메뉴</span>
+          <button onclick="toggleMobileMenu()" class="text-text-muted p-1">
+            <span class="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-4 mt-6 font-body-main text-lg font-bold">
+          <a href="index.html" class="text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">home</span> 홈</a>
+          <a href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73" target="_blank" rel="noopener noreferrer" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">storefront</span> 네이버 매물</a>
+          <a href="news.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">newspaper</span> 부동산 소식</a>
+          <a href="consult.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">calendar_month</span> 온라인 상담 신청</a>
+          <a href="map.html" class="text-on-surface hover:text-primary py-2 flex items-center gap-3"><span class="material-symbols-outlined">location_on</span> 오시는 길</a>
+        </nav>
+      </div>
+      <div class="pt-6 border-t border-outline-variant/30">
+        <a href="tel:010-3260-5229" class="w-full bg-primary text-white py-3 rounded-full font-bold flex items-center justify-center gap-2 text-center">
+          <span class="material-symbols-outlined">call</span> 전화 문의하기
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Hero Section with Working Carousel -->
   <header class="relative pt-20 h-screen min-h-[600px] flex items-center overflow-hidden">
@@ -158,7 +188,7 @@
         신뢰할 수 있는 전문가가 당신의 완벽한 보금자리를 찾아드립니다. 프리미엄 중개 서비스로 새로운 시작을 함께하세요.
       </p>
       <div class="flex flex-wrap gap-4">
-        <a class="inline-flex items-center gap-2 bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-lg" href="tel:010-0000-0000">
+        <a class="inline-flex items-center gap-2 bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-opacity shadow-lg" href="tel:010-3260-5229">
           <span class="material-symbols-outlined" data-icon="call" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">call</span>
           지금 바로 전화 상담하기
         </a>
@@ -268,7 +298,7 @@
             <span class="material-symbols-outlined text-[24px]">calendar_month</span>
             <span>상담 예약하기</span>
           </a>
-          <a class="inline-flex items-center justify-center gap-2 border border-primary text-primary px-6 h-14 rounded-full font-bold text-lg hover:bg-primary/5 transition-colors active:scale-95 min-w-[180px]" href="tel:010-0000-0000">
+          <a class="inline-flex items-center justify-center gap-2 border border-primary text-primary px-6 h-14 rounded-full font-bold text-lg hover:bg-primary/5 transition-colors active:scale-95 min-w-[180px]" href="tel:010-3260-5229">
             <span class="material-symbols-outlined text-[24px]">call</span>
             <span>전화로 문의하기</span>
           </a>
@@ -347,24 +377,28 @@
     </div>
   </footer>
 
-  <!-- BottomNavBar (Mobile Only) -->
-  <nav class="bg-surface-white/90 dark:bg-surface-dim/90 backdrop-blur-lg fixed bottom-0 w-full z-50 md:hidden border-t border-outline-variant/50 shadow-lg pb-safe">
-    <div class="flex justify-around items-center h-16">
-      <a class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 transition-transform" href="index.html">
-        <span class="material-symbols-outlined mb-1" data-icon="home">home</span>
-        <span class="font-label-caps text-label-caps">홈</span>
+  <!-- BottomNavBar (Mobile Only with 5 Items) -->
+  <nav class="bg-surface-white/90 dark:bg-surface-dim/90 backdrop-blur-lg fixed bottom-0 w-full z-40 md:hidden border-t border-outline-variant/50 shadow-lg pb-safe">
+    <div class="flex justify-around items-center h-16 text-xs font-bold">
+      <a class="flex flex-col items-center justify-center text-primary active:scale-90 transition-transform" href="index.html">
+        <span class="material-symbols-outlined mb-0.5">home</span>
+        <span>홈</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="https://new.land.naver.com/complexes/105390?ms=2zB5A8,3Akj4X,17&a=APT:PRE:ABYG:JGC&e=RETAIL&realtorId=indianrose73" target="_blank" rel="noopener noreferrer">
+        <span class="material-symbols-outlined mb-0.5">storefront</span>
+        <span>네이버매물</span>
       </a>
       <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="news.html">
-        <span class="material-symbols-outlined mb-1" data-icon="grid_view">grid_view</span>
-        <span class="font-label-caps text-label-caps">소식</span>
+        <span class="material-symbols-outlined mb-0.5">newspaper</span>
+        <span>소식</span>
       </a>
-      <a href="consult.html" class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform">
-        <span class="material-symbols-outlined mb-1">calendar_month</span>
-        <span class="font-label-caps text-label-caps">상담신청</span>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="consult.html">
+        <span class="material-symbols-outlined mb-0.5">calendar_month</span>
+        <span>상담신청</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="tel:010-0000-0000">
-        <span class="material-symbols-outlined mb-1" data-icon="call">call</span>
-        <span class="font-label-caps text-label-caps">전화문의</span>
+      <a class="flex flex-col items-center justify-center text-text-muted active:scale-90 transition-transform" href="map.html">
+        <span class="material-symbols-outlined mb-0.5">location_on</span>
+        <span>오시는길</span>
       </a>
     </div>
   </nav>
@@ -378,6 +412,13 @@
       startCarousel();
       await renderBoardPreview();
     });
+
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-menu-drawer');
+      if (drawer) {
+        drawer.classList.toggle('hidden');
+      }
+    }
 
     function startCarousel() {
       const images = document.querySelectorAll('.carousel-img');
