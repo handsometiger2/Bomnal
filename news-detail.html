@@ -133,6 +133,10 @@
         </div>
       </div>
 
+      <div id="post-image-container" class="mb-8 rounded-xl overflow-hidden hidden shadow-md">
+        <img id="post-image" class="w-full h-auto max-h-[450px] object-cover rounded-xl" src="" alt="">
+      </div>
+
       <div id="post-content" class="text-on-surface text-base md:text-lg leading-relaxed">
         내용을 불러오는 중입니다...
       </div>
@@ -188,6 +192,17 @@
       document.getElementById('post-category').innerText = post.category || '소식';
       document.getElementById('post-title').innerText = post.title || '';
       document.getElementById('post-date').innerText = post.date || '';
+
+      if (post.image) {
+        const imgContainer = document.getElementById('post-image-container');
+        const img = document.getElementById('post-image');
+        if (imgContainer && img) {
+          img.src = post.image;
+          img.alt = post.title || '';
+          imgContainer.classList.remove('hidden');
+        }
+      }
+
       document.getElementById('post-content').innerHTML = renderMarkdown(post.content || '');
     });
 
