@@ -112,10 +112,12 @@
     body { background-color: #F5F5F7; }
     .carousel-img {
       opacity: 0;
-      transition: opacity 1s ease-in-out;
+      transition: opacity 1.5s ease-in-out;
+      pointer-events: none;
     }
     .carousel-img.active {
       opacity: 1;
+      pointer-events: auto;
     }
   </style>
 </head>
@@ -141,12 +143,12 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Working Carousel -->
   <header class="relative pt-20 h-screen min-h-[600px] flex items-center overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img class="carousel-img w-full h-full object-cover absolute top-0 left-0" src="https://lh3.googleusercontent.com/aida/AP1WRLs2RFkWFO4D1OeWI0G-4PWV25-NOPizBjxKnSxPv6aTSZV7dkSw-lTA4Kx46kxxpsxVhtCo96U_DU_3SPJoyfCCt3PeSCOfcfsemezcIx-Gue6NuEQs_QMSPXjP_ac5Nbi10GRGntJNl2ueUtXq8qIBPu13oWBWt90cusrpQaLe3EJ5I2YemlFif6Pq7guJQP6ZmHL2Y-4bGDhp35o1Ft3hf0GWNaAXMY79I3xkPo2cnSWoHk23fqqWD38g">
-      <img class="carousel-img w-full h-full object-cover absolute top-0 left-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9oUQxsTL_mK42vhUfjoFgNBV5RlmMBhoX6oU-d5MQ1VFu9xxDibKVUBFmtgfxtjqoJPfVT79C-x3qGcOVcrroYEQQg1V2f-I-9JJ0RqM0H1gUBfysP7Eq5UnHE9TeRZFuTLq2t-a0l27r5UCwWI0aBD06_ky3SupMdRA_1cCV5_CHo41jiW3zGtr1r-TE8MBwKbFVmBwS4Bg22JggG3l20hVdjr2c20kfzzWiGsunAG3SB4MPJFUteA">
-      <img class="carousel-img w-full h-full object-cover absolute top-0 left-0 active" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6yiD93T5O8WKJK-Zos0s0jkhxzypEaDLYglE1JsXQKcoRUBPhq_ZJC1dGKE1zuE6zfTorUO03nA8as8W70L5oDEcsI8qEpkUlFRMLIKZAcnxcVJyIaqPvZ5eA3hXNpZjLZmrky8qeQ7YQiYVNgo3b1QQgtCBnIWioTT2fYs_mJqJF_fiFTr4H0Z-HJNLDLy4oVxPLSblLXu6QPqAJrS8qEU2wBew8zv4l8YTMIUHYrmtaYMwA5g1E2Q">
+      <img class="carousel-img active w-full h-full object-cover absolute top-0 left-0" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" alt="Hero background 1">
+      <img class="carousel-img w-full h-full object-cover absolute top-0 left-0" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Hero background 2">
+      <img class="carousel-img w-full h-full object-cover absolute top-0 left-0" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" alt="Hero background 3">
       <div class="absolute inset-0 bg-black/40 z-10"></div>
     </div>
     <div class="relative z-20 px-margin-mobile md:px-margin-desktop w-full flex flex-col justify-center max-w-container-max mx-auto items-start text-left">
@@ -164,6 +166,13 @@
           온라인 상담 신청
         </button>
       </div>
+    </div>
+
+    <!-- Carousel Indicator Dots -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <button onclick="setCarouselSlide(0)" class="carousel-dot w-3 h-3 rounded-full bg-white transition-all opacity-100"></button>
+      <button onclick="setCarouselSlide(1)" class="carousel-dot w-3 h-3 rounded-full bg-white transition-all opacity-40"></button>
+      <button onclick="setCarouselSlide(2)" class="carousel-dot w-3 h-3 rounded-full bg-white transition-all opacity-40"></button>
     </div>
   </header>
 
@@ -246,7 +255,7 @@
   <!-- Consultation Banner Section -->
   <section class="relative py-stack-lg md:py-stack-lg overflow-hidden flex items-start text-left">
     <div class="absolute inset-0 z-0">
-      <img alt="Consultation Background" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVsVeixJ_KwvFOUPR-tavw8TlXywqdnLaOHhz1M6GI3N8XdPlslGvtN2HX5XVEwqt_ejhGfYl5g3a5QLMtzD2Tm6xIerVyBJIRtVcbfmJlnyFhgLlnDrOS_1krQCqmBo7Xs_6nUVj6JfDdftAXIRnA7ENm2vfnksakmaVcBYdgwdjIk8LqETZJWNXMY9nk8HXcIeg96_Bo3j2vzFULARaBYxm-SItaOs685k9juFTkDOAUzSxLjCJfb8hjvXVlw2qEKlI">
+      <img alt="Consultation Background" class="w-full h-full object-cover opacity-40" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop">
       <div class="absolute inset-0 bg-black/40 z-10"></div>
     </div>
     <div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-left">
@@ -292,10 +301,9 @@
         <p class="font-tile-heading text-on-surface text-2xl font-bold text-left">사기 걱정 없는 안심 부동산</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-        <!-- Left Card -->
         <div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-lg text-left">
           <div class="h-64 overflow-hidden">
-            <img alt="전세사기 발생 시 변호사 비용 전액 지원" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs-VOabGmRU4hgcmXsw7hed3RruTt-ft5FCLrQjKfmUSbrsipxXfaOuw0KESyiawBPfqKhsCZVS7b0Wv1_wlMPywVqsEQUpAw9W1jX7hmw2YkAuRFTeQinfCl2FItA_hFe1wDYSN-YBcxUTy12yEn3O1TcZuUzc7vk2cjGPmpRF8kZ_PTqrJ0yk5Iimd87AAKe5ZMArID_FZLkMDU7Mngkt2Fl5v4Zgt8VkH6qALKGmHxGnM-2ZePvkueVmLmOKxfD7G4" style="object-position: center center;">
+            <img alt="전세사기 발생 시 변호사 비용 전액 지원" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=2070&auto=format&fit=crop">
           </div>
           <div class="p-8 text-left">
             <h3 class="font-tile-heading text-primary mb-4">사고발생을 대비하기 위한<br>공제증서 지원</h3>
@@ -304,10 +312,9 @@
             </p>
           </div>
         </div>
-        <!-- Right Card -->
         <div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 shadow-lg text-left">
           <div class="h-64 overflow-hidden">
-            <img alt="계약 시 임대인 소유 등기 리스트 제공" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM1AdxjU_Jvc29Zq8Y5YmnpsMbvzUuF6SWHATWy_jltfbJsgDa_Oil4C8OQJMGK9miTiIWxO9kJreay47_alKOH1_FiKGoJne5UFlT79zojFf6v-JtAlD7DzojwQmwP4Rxoi52wJXKTtd6eORU12Jq76-ZXhka2q8eFfoqxWfUz-c6ElxkpXhF8mznMW8ROq3kIuEeKY0XONExdvaSkOPDGY6V0sE0HNfBGy7mrckE8jyPe5xgOEpYaCf3KYiCqPOhBQI" style="object-position: center center;">
+            <img alt="계약 시 임대인 소유 등기 리스트 제공" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop">
           </div>
           <div class="p-8 text-left">
             <h3 class="font-tile-heading text-primary mb-4">계약 시 임대인 소유<br>등기 리스트 제공</h3>
@@ -386,19 +393,55 @@
 
   <script src="db.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      const images = document.querySelectorAll('.carousel-img');
-      let currentIndex = 0;
-      if (images.length > 0) {
-        setInterval(() => {
-          images[currentIndex].classList.remove('active');
-          currentIndex = (currentIndex + 1) % images.length;
-          images[currentIndex].classList.add('active');
-        }, 5000);
-      }
+    let carouselTimer = null;
+    let carouselIndex = 0;
 
+    document.addEventListener('DOMContentLoaded', async () => {
+      startCarousel();
       await renderBoardPreview();
     });
+
+    function startCarousel() {
+      const images = document.querySelectorAll('.carousel-img');
+      const dots = document.querySelectorAll('.carousel-dot');
+      if (images.length === 0) return;
+
+      if (carouselTimer) clearInterval(carouselTimer);
+
+      carouselTimer = setInterval(() => {
+        carouselIndex = (carouselIndex + 1) % images.length;
+        updateCarouselUI();
+      }, 4000);
+    }
+
+    function setCarouselSlide(idx) {
+      carouselIndex = idx;
+      updateCarouselUI();
+      startCarousel();
+    }
+
+    function updateCarouselUI() {
+      const images = document.querySelectorAll('.carousel-img');
+      const dots = document.querySelectorAll('.carousel-dot');
+
+      images.forEach((img, i) => {
+        if (i === carouselIndex) {
+          img.classList.add('active');
+        } else {
+          img.classList.remove('active');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === carouselIndex) {
+          dot.classList.remove('opacity-40');
+          dot.classList.add('opacity-100', 'w-6');
+        } else {
+          dot.classList.remove('opacity-100', 'w-6');
+          dot.classList.add('opacity-40', 'w-3');
+        }
+      });
+    }
 
     async function renderBoardPreview() {
       const previewSec = document.getElementById('board-preview');
