@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관리자 대시보드 - 봄날부동산</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed": "#001b3e",
+            "on-primary-container": "#fcfbff",
+            "on-error": "#ffffff",
+            "surface-tint": "#005cbb",
+            "outline": "#717785",
+            "surface-bright": "#f9f9fb",
+            "tertiary-fixed-dim": "#aac7ff",
+            "on-secondary": "#ffffff",
+            "tertiary": "#0059b4",
+            "primary-container": "#0071e3",
+            "on-primary": "#ffffff",
+            "surface-white": "#FFFFFF",
+            "surface": "#f9f9fb",
+            "tertiary-container": "#2172d9",
+            "secondary-fixed": "#e4e2e4",
+            "secondary": "#5f5e60",
+            "link-blue": "#0066CC",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#f0f0f2",
+            "surface-container-high": "#e8e8ea",
+            "primary-fixed": "#d7e2ff",
+            "on-tertiary-fixed-variant": "#00458e",
+            "surface-variant": "#e2e2e4",
+            "on-tertiary-container": "#fcfbff",
+            "outline-variant": "#c1c6d6",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f3f3f5",
+            "primary": "#0059b5",
+            "secondary-fixed-dim": "#c8c6c8",
+            "background": "#f9f9fb",
+            "on-tertiary": "#ffffff",
+            "inverse-primary": "#abc7ff",
+            "primary-fixed-dim": "#abc7ff",
+            "inverse-surface": "#2f3132",
+            "on-surface-variant": "#414753",
+            "tertiary-fixed": "#d7e3ff",
+            "text-secondary": "#515154",
+            "surface-dim": "#d9dadc",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#636264",
+            "secondary-container": "#e2dfe1",
+            "surface-container": "#eeeef0",
+            "on-primary-fixed-variant": "#00458f",
+            "text-muted": "#6E6E73",
+            "on-secondary-fixed-variant": "#474649",
+            "on-surface": "#1a1c1d",
+            "on-secondary-fixed": "#1b1b1d",
+            "surface-container-highest": "#e2e2e4",
+            "on-background": "#1a1c1d",
+            "on-primary-fixed": "#001b3f"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "container-max": "1200px",
+            "stack-lg": "80px",
+            "gutter": "20px",
+            "stack-sm": "20px",
+            "stack-md": "40px",
+            "margin-desktop": "40px",
+            "margin-mobile": "20px"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { background-color: #F5F5F7; }
+  </style>
+</head>
+<body class="antialiased text-on-surface flex flex-col min-h-screen">
+
+  <nav class="bg-surface-white/80 dark:bg-surface-dim/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30">
+    <div class="w-full px-margin-desktop flex justify-between items-center h-20">
+      <div class="flex items-center h-10 font-bold">
+        <a href="index.html" class="flex items-center h-full">
+          <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD55N4085FL70nsJ-HPxvYmzzO1Htz6zRq2Lz3ovs1Nz8g0GCqJzpRC7YnXSC065OU9M5so1T4ffDguSKdxhcdJp_ANkUpg_cbV4CgYos-MA1Jm9TLXxKkLVlIvyZRbJZdMW1A9hqKcPCRRaJ4DBFuhLeHD-j0mPhwIuqSjWirqCcTXq0Yyb_sh-GEBQapvd1oTdBvHHBpk_gqfaiRs1lwyGc4WJ9rVO6my6TaWFE3Zb2-PdwNUzgi8oKAy9w0FDjXDKIM">
+        </a>
+      </div>
+      <div class="hidden md:flex gap-8 font-body-main text-body-main font-bold">
+        <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 hover:opacity-80" href="index.html">홈</a>
+        <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 hover:opacity-80" href="news.html">부동산 소식</a>
+        <a class="text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-transform hover:opacity-80" href="admin.html">게시글 관리</a>
+      </div>
+      <a class="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform hover:opacity-80" href="tel:010-0000-0000">
+        전화 문의하기
+      </a>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+
+    <div id="login-view" class="hidden max-w-md mx-auto my-12">
+      <div class="bg-surface-white p-8 rounded-2xl border border-outline-variant/30 shadow-lg text-center">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+          <span class="material-symbols-outlined text-3xl">admin_panel_settings</span>
+        </div>
+        <h1 class="text-2xl font-bold text-on-surface mb-2">관리자 로그인</h1>
+        <p class="text-text-secondary text-sm mb-6">게시글 작성을 위해 비밀번호를 입력해주세요.</p>
+
+        <form onsubmit="handleLoginSubmit(event)" class="space-y-4 text-left">
+          <div>
+            <label class="block text-sm font-semibold mb-1 text-on-surface">비밀번호</label>
+            <input type="password" id="input-password" required placeholder="비밀번호 입력" class="w-full px-4 py-3 border border-outline-variant/40 rounded-xl focus:ring-2 focus:ring-primary outline-none">
+          </div>
+
+          <div id="login-error" class="hidden text-sm text-error bg-error-container/50 p-3 rounded-lg border border-error/20"></div>
+
+          <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:opacity-90 transition-opacity shadow-md">
+            로그인
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div id="dashboard-view" class="hidden space-y-6">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-surface-white p-6 rounded-2xl border border-outline-variant/30 shadow-sm">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold text-on-surface">게시글 관리 대시보드</h1>
+          <p class="text-text-secondary text-sm mt-1">봄날부동산 홈페이지의 소식 및 정적 데이터를 관리합니다.</p>
+        </div>
+        <div class="flex gap-3 w-full sm:w-auto">
+          <a href="news-write.html" class="flex-1 sm:flex-initial inline-flex justify-center items-center gap-1 bg-primary text-white px-5 py-2.5 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity shadow-md">
+            <span class="material-symbols-outlined text-lg">add</span> 새 글 작성
+          </a>
+          <button onclick="handleLogout()" class="inline-flex justify-center items-center gap-1 bg-surface-container text-text-secondary hover:bg-gray-200 px-4 py-2.5 rounded-xl font-bold text-sm transition-colors">
+            <span class="material-symbols-outlined text-lg">logout</span> 로그아웃
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-surface-white rounded-2xl border border-outline-variant/30 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-surface border-b border-outline-variant/30 text-text-muted text-xs font-bold uppercase tracking-wider">
+                <th class="py-4 px-6">번호</th>
+                <th class="py-4 px-6">카테고리</th>
+                <th class="py-4 px-6">제목</th>
+                <th class="py-4 px-6">작성일</th>
+                <th class="py-4 px-6 text-center">관리</th>
+              </tr>
+            </thead>
+            <tbody id="posts-table-body" class="divide-y divide-outline-variant/20 text-sm">
+            </tbody>
+          </table>
+        </div>
+
+        <div id="table-empty" class="hidden text-center py-16">
+          <span class="material-symbols-outlined text-5xl text-gray-300 mb-2">post_add</span>
+          <p class="text-text-secondary font-bold text-base">작성된 게시글이 없습니다.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant w-full py-stack-md mt-auto">
+    <div class="w-full px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-container-max mx-auto">
+      <div class="flex items-center h-8 font-bold">
+        <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGskRYDvYgICjk89DxvER4EUl2x4b24y-8G9FqiAj8fdVbbMMBnr0Flg8uZgmdhRFxJNA-Fqx_hkKcBI5UBG4Qegb8Fw--AC7fBumcze5CPKb-F5X1ogao9KQElue8LaeJ_EOQJU5f_4C-1VVyC_j2N2HJwyHNdSpZtHZlaRQGPFF3jcnMLvQ5_xHu9sn4BIojDSRHpdYdBEidQt3Z-XNLF8i0d5PIAbQVtLkosBVVd8MKOwq3fN9IdeE3rWu34FZCacc">
+      </div>
+      <div class="flex gap-4 font-caption text-caption text-text-muted">
+        <a class="hover:text-primary hover:underline" href="#">이용약관</a>
+        <a class="hover:text-primary hover:underline" href="#">개인정보처리방침</a>
+        <a id="agent-login-btn" href="admin.html" class="hover:text-primary hover:underline font-bold text-primary">Agent Login</a>
+      </div>
+      <div class="font-caption text-caption text-text-muted text-center">
+        © 2026 봄날공인중개사사무소. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="db.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      if (isAdmin()) {
+        document.getElementById('dashboard-view').classList.remove('hidden');
+        await loadTableData();
+      } else {
+        document.getElementById('login-view').classList.remove('hidden');
+      }
+    });
+
+    async function handleLoginSubmit(e) {
+      e.preventDefault();
+      const inputPass = document.getElementById('input-password').value;
+      const errorDiv = document.getElementById('login-error');
+
+      const config = await loadConfig();
+      const expectedPass = config.admin_password || 'admin1234';
+
+      if (inputPass === expectedPass) {
+        sessionStorage.setItem('isAdmin', 'true');
+        window.location.reload();
+      } else {
+        errorDiv.classList.remove('hidden');
+        errorDiv.innerText = '비밀번호가 올바르지 않습니다.';
+      }
+    }
+
+    function handleLogout() {
+      sessionStorage.removeItem('isAdmin');
+      window.location.reload();
+    }
+
+    async function loadTableData() {
+      const tbody = document.getElementById('posts-table-body');
+      const emptyDiv = document.getElementById('table-empty');
+
+      const posts = await getPosts();
+      if (!posts || posts.length === 0) {
+        tbody.innerHTML = '';
+        emptyDiv.classList.remove('hidden');
+        return;
+      }
+
+      emptyDiv.classList.add('hidden');
+      tbody.innerHTML = posts.map((post, idx) => `
+        <tr class="hover:bg-surface/60 transition-colors">
+          <td class="py-4 px-6 font-mono text-text-muted">${posts.length - idx}</td>
+          <td class="py-4 px-6">
+            <span class="bg-primary/10 text-primary px-2.5 py-1 rounded-full text-xs font-bold">${escapeHtml(post.category || '소식')}</span>
+          </td>
+          <td class="py-4 px-6 font-bold text-on-surface hover:text-primary cursor-pointer" onclick="location.href='news-detail.html?id=${post.id}'">
+            ${escapeHtml(post.title || '')}
+          </td>
+          <td class="py-4 px-6 text-text-muted text-xs">${escapeHtml(post.date || '')}</td>
+          <td class="py-4 px-6 text-center">
+            <div class="flex justify-center gap-2">
+              <a href="news-write.html?id=${post.id}" class="bg-surface-container hover:bg-primary-fixed text-primary px-3 py-1.5 rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">edit</span> 수정
+              </a>
+              <button onclick="confirmDeletePost('${post.id}')" class="bg-error-container text-error hover:bg-red-200 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">delete</span> 삭제
+              </button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    async function confirmDeletePost(id) {
+      if (!confirm('정말로 이 게시글을 삭제하시겠습니까?')) return;
+      try {
+        await deletePost(id);
+        await loadTableData();
+      } catch (e) {
+        alert('삭제 실패: ' + e.message);
+      }
+    }
+  </script>
+</body>
+</html>
