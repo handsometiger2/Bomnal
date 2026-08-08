@@ -91,6 +91,16 @@
     body, button, input, select, textarea {
       font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif !important;
     }
+    select {
+      -webkit-appearance: none !important;
+      -moz-appearance: none !important;
+      appearance: none !important;
+      background-image: none !important;
+      padding-right: 2.5rem !important;
+    }
+    select::-ms-expand {
+      display: none !important;
+    }
     @font-face {
       font-family: 'DesignHouse Bold';
       src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/DesignhouseB.woff') format('woff');
