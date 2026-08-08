@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 상세 - 봄날부동산</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed": "#001b3e",
+            "on-primary-container": "#fcfbff",
+            "on-error": "#ffffff",
+            "surface-tint": "#005cbb",
+            "outline": "#717785",
+            "surface-bright": "#f9f9fb",
+            "tertiary-fixed-dim": "#aac7ff",
+            "on-secondary": "#ffffff",
+            "tertiary": "#0059b4",
+            "primary-container": "#0071e3",
+            "on-primary": "#ffffff",
+            "surface-white": "#FFFFFF",
+            "surface": "#f9f9fb",
+            "tertiary-container": "#2172d9",
+            "secondary-fixed": "#e4e2e4",
+            "secondary": "#5f5e60",
+            "link-blue": "#0066CC",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#f0f0f2",
+            "surface-container-high": "#e8e8ea",
+            "primary-fixed": "#d7e2ff",
+            "on-tertiary-fixed-variant": "#00458e",
+            "surface-variant": "#e2e2e4",
+            "on-tertiary-container": "#fcfbff",
+            "outline-variant": "#c1c6d6",
+            "error": "#ba1a1a",
+            "surface-container-low": "#f3f3f5",
+            "primary": "#0059b5",
+            "secondary-fixed-dim": "#c8c6c8",
+            "background": "#f9f9fb",
+            "on-tertiary": "#ffffff",
+            "inverse-primary": "#abc7ff",
+            "primary-fixed-dim": "#abc7ff",
+            "inverse-surface": "#2f3132",
+            "on-surface-variant": "#414753",
+            "tertiary-fixed": "#d7e3ff",
+            "text-secondary": "#515154",
+            "surface-dim": "#d9dadc",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-container": "#636264",
+            "secondary-container": "#e2dfe1",
+            "surface-container": "#eeeef0",
+            "on-primary-fixed-variant": "#00458f",
+            "text-muted": "#6E6E73",
+            "on-secondary-fixed-variant": "#474649",
+            "on-surface": "#1a1c1d",
+            "on-secondary-fixed": "#1b1b1d",
+            "surface-container-highest": "#e2e2e4",
+            "on-background": "#1a1c1d",
+            "on-primary-fixed": "#001b3f"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "container-max": "1200px",
+            "stack-lg": "80px",
+            "gutter": "20px",
+            "stack-sm": "20px",
+            "stack-md": "40px",
+            "margin-desktop": "40px",
+            "margin-mobile": "20px"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { background-color: #F5F5F7; }
+  </style>
+</head>
+<body class="antialiased text-on-surface flex flex-col min-h-screen">
+
+  <nav class="bg-surface-white/80 dark:bg-surface-dim/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30">
+    <div class="w-full px-margin-desktop flex justify-between items-center h-20">
+      <div class="flex items-center h-10 font-bold">
+        <a href="index.html" class="flex items-center h-full">
+          <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD55N4085FL70nsJ-HPxvYmzzO1Htz6zRq2Lz3ovs1Nz8g0GCqJzpRC7YnXSC065OU9M5so1T4ffDguSKdxhcdJp_ANkUpg_cbV4CgYos-MA1Jm9TLXxKkLVlIvyZRbJZdMW1A9hqKcPCRRaJ4DBFuhLeHD-j0mPhwIuqSjWirqCcTXq0Yyb_sh-GEBQapvd1oTdBvHHBpk_gqfaiRs1lwyGc4WJ9rVO6my6TaWFE3Zb2-PdwNUzgi8oKAy9w0FDjXDKIM">
+        </a>
+      </div>
+      <div class="hidden md:flex gap-8 font-body-main text-body-main font-bold">
+        <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 hover:opacity-80" href="index.html">홈</a>
+        <a class="text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 transition-transform hover:opacity-80" href="news.html">부동산 소식</a>
+        <a class="text-text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors active:scale-95 hover:opacity-80" href="admin.html">게시글 관리</a>
+      </div>
+      <a class="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform hover:opacity-80" href="tel:010-0000-0000">
+        전화 문의하기
+      </a>
+    </div>
+  </nav>
+
+  <main class="pt-28 pb-20 flex-grow w-full max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="mb-6 flex justify-between items-center">
+      <a href="news.html" class="inline-flex items-center gap-1 text-text-secondary hover:text-primary font-bold text-sm">
+        <span class="material-symbols-outlined text-lg">arrow_back</span> 목록으로 돌아가기
+      </a>
+      <div id="admin-actions" class="hidden flex gap-2">
+        <button id="btn-edit" class="bg-surface-container hover:bg-primary-fixed text-primary px-4 py-2 rounded-lg font-bold text-sm transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-base">edit</span> 수정
+        </button>
+        <button id="btn-delete" onclick="handleDelete()" class="bg-error-container text-error hover:bg-red-200 px-4 py-2 rounded-lg font-bold text-sm transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-base">delete</span> 삭제
+        </button>
+      </div>
+    </div>
+
+    <article class="bg-surface-white rounded-2xl p-6 md:p-10 border border-outline-variant/30 shadow-sm">
+      <div class="border-b border-outline-variant/30 pb-6 mb-8">
+        <span id="post-category" class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold mb-3">소식</span>
+        <h1 id="post-title" class="text-2xl md:text-4xl font-bold text-on-surface mb-4 leading-tight">제목을 불러오는 중...</h1>
+        <div class="flex justify-between items-center text-sm text-text-muted">
+          <span id="post-date">2026-08-08</span>
+          <span class="text-primary font-bold">봄날공인중개사사무소</span>
+        </div>
+      </div>
+
+      <div id="post-content" class="text-on-surface text-base md:text-lg leading-relaxed">
+        내용을 불러오는 중입니다...
+      </div>
+    </article>
+  </main>
+
+  <footer class="bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant w-full py-stack-md mt-auto">
+    <div class="w-full px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-container-max mx-auto">
+      <div class="flex items-center h-8 font-bold">
+        <img alt="봄날부동산" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGskRYDvYgICjk89DxvER4EUl2x4b24y-8G9FqiAj8fdVbbMMBnr0Flg8uZgmdhRFxJNA-Fqx_hkKcBI5UBG4Qegb8Fw--AC7fBumcze5CPKb-F5X1ogao9KQElue8LaeJ_EOQJU5f_4C-1VVyC_j2N2HJwyHNdSpZtHZlaRQGPFF3jcnMLvQ5_xHu9sn4BIojDSRHpdYdBEidQt3Z-XNLF8i0d5PIAbQVtLkosBVVd8MKOwq3fN9IdeE3rWu34FZCacc">
+      </div>
+      <div class="flex gap-4 font-caption text-caption text-text-muted">
+        <a class="hover:text-primary hover:underline" href="#">이용약관</a>
+        <a class="hover:text-primary hover:underline" href="#">개인정보처리방침</a>
+        <a id="agent-login-btn" href="admin.html" class="hover:text-primary hover:underline font-bold text-primary">Agent Login</a>
+      </div>
+      <div class="font-caption text-caption text-text-muted text-center">
+        © 2026 봄날공인중개사사무소. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="db.js"></script>
+  <script>
+    let currentPostId = null;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      currentPostId = params.get('id');
+
+      if (!currentPostId) {
+        alert('존재하지 않는 게시글입니다.');
+        window.location.href = 'news.html';
+        return;
+      }
+
+      if (isAdmin()) {
+        const adminActions = document.getElementById('admin-actions');
+        adminActions.classList.remove('hidden');
+        document.getElementById('btn-edit').onclick = () => {
+          window.location.href = `news-write.html?id=${currentPostId}`;
+        };
+      }
+
+      const post = await getPostById(currentPostId);
+      if (!post) {
+        document.getElementById('post-title').innerText = '게시글을 찾을 수 없습니다.';
+        document.getElementById('post-content').innerText = '삭제되었거나 존재하지 않는 게시글입니다.';
+        return;
+      }
+
+      document.title = `${post.title} - 봄날부동산`;
+      document.getElementById('post-category').innerText = post.category || '소식';
+      document.getElementById('post-title').innerText = post.title || '';
+      document.getElementById('post-date').innerText = post.date || '';
+      document.getElementById('post-content').innerHTML = renderMarkdown(post.content || '');
+    });
+
+    async function handleDelete() {
+      if (!confirm('정말로 이 게시글을 삭제하시겠습니까?')) return;
+      try {
+        await deletePost(currentPostId);
+        alert('게시글이 삭제되었습니다.');
+        window.location.href = 'news.html';
+      } catch (e) {
+        alert('삭제 실패: ' + e.message);
+      }
+    }
+  </script>
+</body>
+</html>
