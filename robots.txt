@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# GEO & Generative AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+Sitemap: https://handsometiger2.github.io/Bomnal/sitemap.xml
